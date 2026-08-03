@@ -1,22 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-container: var(--primary-container);
-  --color-on-primary-container: var(--on-primary-container);
-  --color-surface-container-low: var(--surface-container-low);
-  --color-surface-container: var(--surface-container);
-  --color-surface-container-high: var(--surface-container-high);
-  --color-surface-container-lowest: var(--surface-container-lowest);
-  --color-surface: var(--surface-container-lowest);
-  --color-outline: var(--outline);
-  --color-outline-variant: var(--outline-variant);
-  --color-on-surface-variant: var(--on-surface-variant);
-  --color-error: var(--error);
-  --font-sans: var(--font-inter), sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
