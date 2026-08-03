@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AVENZON - Categories</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#434655",
+                        "secondary-fixed": "#ffddb8",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "secondary": "#855300",
+                        "surface-container-highest": "#e1e2ed",
+                        "surface-dim": "#d9d9e5",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c3c6d7",
+                        "on-tertiary-container": "#ecf0ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#faf8ff",
+                        "surface-container": "#ededf9",
+                        "on-primary-fixed": "#00174b",
+                        "on-background": "#191b23",
+                        "surface-tint": "#0053db",
+                        "surface-bright": "#faf8ff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191b23",
+                        "tertiary-fixed": "#dce2f7",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "tertiary-container": "#666d7f",
+                        "outline": "#737686",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "surface-variant": "#e1e2ed",
+                        "on-tertiary-fixed": "#141b2b",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-tertiary-fixed-variant": "#404758",
+                        "on-primary": "#ffffff",
+                        "primary": "#004ac6",
+                        "inverse-primary": "#b4c5ff",
+                        "tertiary-fixed-dim": "#c0c6db",
+                        "on-secondary-fixed": "#2a1700",
+                        "on-primary-container": "#eeefff",
+                        "inverse-on-surface": "#f0f0fb",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#4e5566",
+                        "surface": "#faf8ff",
+                        "on-secondary-container": "#684000",
+                        "inverse-surface": "#2e3039",
+                        "surface-container-high": "#e7e7f3",
+                        "surface-container-low": "#f3f3fe",
+                        "secondary-container": "#fea619"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "sm": "16px",
+                        "margin-desktop": "48px",
+                        "md": "24px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["60px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+        
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        
+        .img-hover-zoom img {
+            transition: transform .5s ease;
+        }
+        
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<a class="font-display-lg text-headline-md tracking-tighter font-bold text-on-background dark:text-surface-bright" href="#">AVENZON</a>
+<nav class="hidden md:flex gap-sm ml-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:bg-surface-container-low transition-all duration-300 px-3 py-2 rounded-lg" href="#">Marketplace</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-body-md text-body-md px-3 py-2" href="#">Vendors</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:bg-surface-container-low transition-all duration-300 px-3 py-2 rounded-lg" href="#">Enterprise</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:bg-surface-container-low transition-all duration-300 px-3 py-2 rounded-lg" href="#">Insights</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:bg-surface-container-low transition-all duration-300 px-3 py-2 rounded-lg" href="#">Support</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<div class="hidden md:flex items-center bg-surface-container-low border border-outline-variant rounded-full px-4 py-2 focus-within:border-primary transition-colors">
+<span class="material-symbols-outlined text-outline mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48 text-on-surface outline-none" placeholder="Search categories..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+<button class="hidden md:block bg-primary-container text-on-primary px-4 py-2 rounded-lg font-label-md hover:bg-primary transition-colors shadow-sm ml-2">Get Started</button>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop lg:px-gutter max-w-container-max mx-auto w-full">
+<!-- Header Section -->
+<section class="mb-xl text-center md:text-left">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">Explore Categories</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Discover a world of premium products carefully curated for the modern lifestyle. From cutting-edge technology to timeless luxury.</p>
+</section>
+<!-- Featured Collections Bento Grid -->
+<section class="mb-xl">
+<div class="flex justify-between items-end mb-8">
+<h2 class="font-headline-xl text-headline-xl text-on-background">Featured Collections</h2>
+<a class="font-label-md text-label-md text-primary flex items-center hover:underline" href="#">View all <span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 min-h-[500px] md:min-h-[600px]">
+<!-- Main Feature (2x2) -->
+<div class="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden relative group img-hover-zoom cursor-pointer">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A high-end, minimalist lifestyle shot featuring a modern living room bathed in natural light from floor-to-ceiling windows. The room features a sleek, low-profile leather sofa in a muted taupe color, accented by a striking geometric coffee table in matte black steel and smoked glass. The overall aesthetic is quiet luxury, with a bright, airy light-mode feel. A subtle vase with a single minimalist branch provides a touch of organic texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo6OEE9zZPpRNbO0rNN4YNRAqyakQg9tVxK9G-xYgt6XlryXhV_poPHzhmm8IkYVcp9lKJMAi3aCbgGrMJQhPtXaAc7L25jE4PUEebZgP-Xpa9GfDhaC_6P18l6oZCi4Vl1lct4mlLxHF5ekO94hsqTR5CdEg_u4P2tQGaZhNyBTtbXpSSpmO-gjwpVGy6AH1_p6PXJM_AIV_QmFffE2dKJQUZ2W3LBm30umikj2U1jRp4ANkFf5c2yw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full glass-card border-t border-white/20 rounded-b-2xl">
+<span class="inline-block px-3 py-1 bg-surface-container-lowest/80 text-primary font-label-sm rounded-full mb-3 backdrop-blur-md">Curated</span>
+<h3 class="font-headline-lg text-headline-lg text-white mb-2">Modern Living</h3>
+<p class="font-body-md text-body-md text-white/80 line-clamp-2">Elevate your space with our curated selection of contemporary furniture and minimalist decor designed for the discerning eye.</p>
+</div>
+</div>
+<!-- Secondary Feature Top -->
+<div class="md:col-span-2 md:row-span-1 rounded-2xl overflow-hidden relative group img-hover-zoom cursor-pointer">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A close-up, highly detailed product shot of a luxury mechanical watch resting on a piece of dark, polished slate. The lighting is dramatic and directional, highlighting the intricate details of the watch face, the brushed steel casing, and the texture of the premium leather strap. The setting is clean and high-fidelity, evoking a sense of precision engineering and timeless elegance within a sophisticated context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPcCPU3kxDDGYqmWKbAcX7xbRsGsaZ2LMVqOkPFSwuPA7X1tQwTiBF3yp47KvY51CdRv3aPN-0XoocHZD-CFqpi4NDKoisOm3_bex6O7F64hd--cjZXfDH5Jwyskvnex1KymFbzTKKnLn82f-Bs4pJ-1lLSixTKljXCMfvQFigllu_r1baH8qHJ0qV9aOXQNuRVi3EqwwuP6bVHDYNlnzQwD0FCaQpIOQlIYrZAvLDBKpX9VJf-qP_iA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="font-headline-md text-headline-md text-white mb-1">Luxury Timepieces</h3>
+<p class="font-body-sm text-body-sm text-white/80">Precision engineering meets classic design.</p>
+</div>
+</div>
+<!-- Secondary Feature Bottom 1 -->
+<div class="md:col-span-1 md:row-span-1 rounded-2xl overflow-hidden relative group img-hover-zoom cursor-pointer">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A minimalist composition featuring the latest generation smartphone floating slightly above a pristine white surface. The phone's screen displays a vibrant, fluid abstract gradient in primary blue and crisp white, contrasting with the sleek metallic edges of the device. The lighting is soft and diffused, creating a shadowless, high-tech aesthetic that emphasizes clean lines and premium consumer electronics design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfqxsQExG-8EY87Yh2pdWL8zQR11_2jFdRvgJ6mAjcWASLoxWztaq0_hKIh-ZjkjbwbBXoQHxCG2LVUAdt9Mr-fxXvUvb5-Ji-jvVMFQogkNCeKcosJPMlWsD3B0WjGM_AL1U8J0uerkzw957f0bX9zoqtkSyGYeaWU7f84G8yq6Kl3QJ7Q-sDWA1F038OpFKCFxlP2iLS-rD2LWRvHZBw3UEbozmnY5wYR3gUGiR-2RMnAYDryHJKAQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-5">
+<h3 class="font-headline-md text-headline-md text-white text-lg">Electronics</h3>
+</div>
+</div>
+<!-- Secondary Feature Bottom 2 -->
+<div class="md:col-span-1 md:row-span-1 rounded-2xl overflow-hidden relative group img-hover-zoom cursor-pointer bg-surface-container-high flex flex-col justify-center items-center text-center p-6 border border-outline-variant/30 hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary mb-3">grid_view</span>
+<h3 class="font-label-md text-label-md text-on-surface mb-2">Explore All 42 Collections</h3>
+<button class="mt-4 px-6 py-2 border border-on-surface rounded-full font-label-sm text-on-surface hover:bg-on-surface hover:text-surface transition-all">Browse Directory</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl bg-surface-container-lowest dark:bg-background border-t border-outline-variant">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-md px-gutter max-w-container-max mx-auto">
+<div class="col-span-2 lg:col-span-2 mb-8 md:mb-0">
+<div class="font-display-lg text-headline-sm font-bold text-on-background mb-4">AVENZON</div>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-6 max-w-xs">A premium multi-vendor marketplace connecting global buyers with extraordinary products.</p>
+<div class="text-on-surface-variant font-body-sm text-body-sm">
+                    © 2024 AVENZON Global Marketplace. All rights reserved.
+                </div>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-on-surface mb-4 font-semibold">Legal</h4>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200 font-body-sm text-body-sm" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200 font-body-sm text-body-sm" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-on-surface mb-4 font-semibold">Vendors</h4>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200 font-body-sm text-body-sm" href="#">Vendor Agreement</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200 font-body-sm text-body-sm" href="#">Sell on Avenzon</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+<h4 class="font-label-md text-label-md text-on-surface mb-4 font-semibold">Accessibility &amp; Settings</h4>
+<ul class="flex flex-wrap gap-4">
+<li><a class="text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200 font-body-sm text-body-sm" href="#">Accessibility</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200 font-body-sm text-body-sm" href="#">Cookies</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AVENZON - Chronograph Masterpiece</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#434655",
+                        "secondary-fixed": "#ffddb8",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "secondary": "#855300",
+                        "surface-container-highest": "#e1e2ed",
+                        "surface-dim": "#d9d9e5",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c3c6d7",
+                        "on-tertiary-container": "#ecf0ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#faf8ff",
+                        "surface-container": "#ededf9",
+                        "on-primary-fixed": "#00174b",
+                        "on-background": "#191b23",
+                        "surface-tint": "#0053db",
+                        "surface-bright": "#faf8ff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191b23",
+                        "tertiary-fixed": "#dce2f7",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "tertiary-container": "#666d7f",
+                        "outline": "#737686",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "surface-variant": "#e1e2ed",
+                        "on-tertiary-fixed": "#141b2b",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-tertiary-fixed-variant": "#404758",
+                        "on-primary": "#ffffff",
+                        "primary": "#004ac6",
+                        "inverse-primary": "#b4c5ff",
+                        "tertiary-fixed-dim": "#c0c6db",
+                        "on-secondary-fixed": "#2a1700",
+                        "on-primary-container": "#eeefff",
+                        "inverse-on-surface": "#f0f0fb",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#4e5566",
+                        "surface": "#faf8ff",
+                        "on-secondary-container": "#684000",
+                        "inverse-surface": "#2e3039",
+                        "surface-container-high": "#e7e7f3",
+                        "surface-container-low": "#f3f3fe",
+                        "secondary-container": "#fea619"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "sm": "16px",
+                        "margin-desktop": "48px",
+                        "md": "24px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["60px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+<a class="font-display-lg text-headline-md tracking-tighter font-bold text-on-background dark:text-surface-bright" href="#">AVENZON</a>
+<div class="hidden md:flex gap-lg items-center">
+<!-- No active item since this is a deep PDP -->
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Marketplace</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Vendors</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Enterprise</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Insights</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Support</a>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low p-2 rounded-full duration-300">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low p-2 rounded-full duration-300">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low p-2 rounded-full duration-300">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+<button class="hidden md:block bg-primary text-on-primary font-label-md px-6 py-2.5 rounded-full hover:bg-surface-tint transition-all duration-300 shadow-[inset_0_2px_4px_rgba(255,255,255,0.2)] active:scale-95 ease-out">
+                    Get Started
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Product Canvas -->
+<main class="pt-[100px] pb-xl px-gutter max-w-container-max mx-auto">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 py-4 text-on-surface-variant font-body-sm mb-lg">
+<a class="hover:text-primary transition-colors" href="#">Marketplace</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Luxury Watches</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-background font-medium">Chronograph Masterpiece Tourbillon</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl relative">
+<!-- Left Column: Gallery & Media (Spans 7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-md">
+<!-- Main Image Hero -->
+<div class="relative w-full aspect-square bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden group cursor-zoom-in">
+<img alt="Chronograph Masterpiece" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" data-alt="A highly detailed, ultra-high-resolution macro photograph of a luxury tourbillon watch with a skeletonized dial. The intricate mechanical gears, ruby jewels, and polished titanium case are visible under brilliant, soft studio lighting. The background is a pure, minimalist stark white, emphasizing the watch's premium craftsmanship. The aesthetic is modern, expensive, and precise, consistent with a high-end luxury e-commerce platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx3nn6CtykwZuSidkkTrrGE7SY3EYoaC8MhFw4QSB4VN56tcoUUZpM0SUN-s7BxHFdUNinSipIwJDj04K3p7NezHX5GEgPQQPtIF26itBdGOWa1Ao-P-BRcGGHztiZ1C_lb0ZrmyHuXA1IQ6cptN5CxocPg-pMiO6eay7ggw1L8sVRtjWlDDubguRcpBRuTipIv8IwV0-bD6gM76KZvKnGmM6RKJ_obAzBH_-O03mkmMnln6dgBZR5GA"/>
+<!-- Media Controls (360/Video) -->
+<div class="absolute bottom-4 left-4 flex gap-2">
+<button class="glass-panel text-on-surface px-3 py-1.5 rounded-full flex items-center gap-2 font-label-sm shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">360</span>
+                            360 View
+                        </button>
+<button class="glass-panel text-on-surface px-3 py-1.5 rounded-full flex items-center gap-2 font-label-sm shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+                            Video
+                        </button>
+</div>
+</div>
+<!-- Thumbnail Grid -->
+<div class="grid grid-cols-6 gap-4">
+<button class="aspect-square bg-surface-container-lowest border-2 border-primary rounded-lg overflow-hidden">
+<img alt="Thumbnail 1" class="w-full h-full object-cover" data-alt="Front view macro shot of the luxury tourbillon watch showing the complex skeleton dial against a bright white background, studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrkf1M4rZa6AhGpUE1ZA7tVbl6yCLX_SYvI_RLHSsjRIio6qgO3pdvzZi4Hx8E7w5_VtrD5BY6k0CXv59TGiS4OnZRwkx8zQEw-L1JkJvrzidaKQuPpavsJyVb9nmj67MVPgqI8K2pfWGEhIpdbmJDV9Zo9A7tIzrwiMlgtjxrAJcnvQNT4bHtHmrIcREjCtrruDBx6FdPLJyGJdUNjgQBLCP4E5AV7zMVD_OYrHp8Jicz2cn9zNrt2A"/>
+</button>
+<button class="aspect-square bg-surface-container-lowest border border-surface-variant hover:border-outline rounded-lg overflow-hidden transition-colors">
+<img alt="Thumbnail 2" class="w-full h-full object-cover opacity-70 hover:opacity-100" data-alt="Side profile shot of the luxury watch highlighting the polished crown and slim titanium case profile on a pristine white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3vmIvl37nqGBuoiYoc4UWZQf7EbIxv7yG0gU7RRRWBbATRShGzS3YPCPovQFMPyz_fW1fiXYnIYS9AIFD2c5Aixn067ZdB8dQHUtZ6A9qakHaZ2OeQnsuavYcJ_X3BIfpIAO4_VBkGk0vnJ5xdbfBe73JQRZY-NAzdF5Sb0RvVsYdEMdregFKj_bopBYzG_uTqiZezh_LoaSyX7O-K_jlF7_CTcs8HstFuKrkXj_U8077BBdgZcu_Vw"/>
+</button>
+<button class="aspect-square bg-surface-container-lowest border border-surface-variant hover:border-outline rounded-lg overflow-hidden transition-colors">
+<img alt="Thumbnail 3" class="w-full h-full object-cover opacity-70 hover:opacity-100" data-alt="Close up detail shot of the premium alligator leather watch strap and the deployment clasp, set in a clean minimalist environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG2Fk8SV2q920MiXcKqu27pIqpLKe_x3m_jffQt768tlbvxX76Q6MlD8Thqb5HwE1mMdEwyy7jC45KSsDMBaYh7e_pupPBZO_re4YzDZKgnGpFZCzg0CaN3K-ZDHjJeqC8GvRUCnIbYOma3jBWE4toRtNvmQq2edUsIC7mI6TFPgofFnZgO0wQ2N7ZSZnLyO6dXDl7S8H6DS6pxx5aol5rT85_b8nZrgt9jbE6PcqldcTZkf692P5QUw"/>
+</button>
+<button class="aspect-square bg-surface-container-lowest border border-surface-variant hover:border-outline rounded-lg overflow-hidden transition-colors">
+<img alt="Thumbnail 4" class="w-full h-full object-cover opacity-70 hover:opacity-100" data-alt="Angled macro view of the watch's case back, revealing the intricate movement and rotor through a sapphire crystal pane." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4hCixUm3WnVDcuaq2VugUzDIsLLLt0qaCaIxrg4Pi29t6wKl46JCyaaXn2SIX1KhyCakzueHhwO0qLMKR3E5t1z9jYQRVQTi8jP73hvQqG0gjMGmDa2_PsR3P0LsHA8NsJj7W1VovX2L3v46Jg2n0et-dGNG3_3RClHlgKQKfJIjqY2A0HmgYiRWXXlrF9sBGR8DLGqyLoVyXcQAU7j4fUlau1wB5zku-v4Jp0nWJMUgaJDRkQxKOyA"/>
+</button>
+</div>
+</div>
+<!-- Right Column: Product Info & Actions (Spans 5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-lg">
+<!-- Title & Price Block -->
+<div class="flex flex-col gap-4 border-b border-surface-variant pb-lg">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-primary tracking-widest uppercase">Maison Horlogerie</span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined filled text-[14px] text-primary">verified</span>
+                            Verified Vendor
+                        </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-background">Chronograph Masterpiece Tourbillon</h1>
+<div class="flex items-center gap-4">
+<div class="flex items-center text-secondary-container">
+<span class="material-symbols-outlined filled text-[20px]">star</span>
+<span class="material-symbols-outlined filled text-[20px]">star</span>
+<span class="material-symbols-outlined filled text-[20px]">star</span>
+<span class="material-symbols-outlined filled text-[20px]">star</span>
+<span class="material-symbols-outlined filled text-[20px]">star_half</span>
+</div>
+<span class="font-body-sm text-on-surface-variant underline cursor-pointer">128 Reviews</span>
+</div>
+<div class="flex items-end gap-3 mt-2">
+<span class="font-display-lg text-headline-xl text-on-background">$14,500</span>
+<span class="font-body-lg text-outline line-through mb-1">$16,000</span>
+<span class="font-label-sm text-on-error bg-error px-2 py-1 rounded-full mb-2">Save $1,500</span>
+</div>
+</div>
+<!-- Variants Selection -->
+<div class="flex flex-col gap-6">
+<!-- Color -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-md text-on-background">Case Material</span>
+<span class="font-body-sm text-on-surface-variant">Selected: Titanium</span>
+</div>
+<div class="flex gap-3">
+<button class="w-12 h-12 rounded-full border-2 border-primary p-0.5 flex items-center justify-center focus:ring-2 focus:ring-primary focus:outline-none" aria-label="Select Titanium Material">
+<span class="block w-full h-full rounded-full bg-[#E5E7EB] shadow-inner"></span>
+</button>
+<button class="w-12 h-12 rounded-full border border-surface-variant hover:border-outline p-0.5 flex items-center justify-center transition-colors focus:ring-2 focus:ring-primary focus:outline-none" aria-label="Select Yellow Gold Material">
+<span class="block w-full h-full rounded-full bg-[#FCD34D] shadow-inner"></span>
+</button>
+<button class="w-12 h-12 rounded-full border border-surface-variant hover:border-outline p-0.5 flex items-center justify-center transition-colors focus:ring-2 focus:ring-primary focus:outline-none" aria-label="Select Rose Gold Material">
+<span class="block w-full h-full rounded-full bg-[#FDA4AF] shadow-inner"></span>
+</button>
+</div>
+</div>
+<!-- Strap -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-md text-on-background">Strap Options</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="border-2 border-primary rounded-lg py-3 px-4 flex flex-col items-start gap-1 bg-surface-container-low" aria-label="Black Alligator strap option">
+<span class="font-label-md text-on-background">Black Alligator</span>
+<span class="font-body-sm text-on-surface-variant">Included</span>
+</button>
+<button class="border border-surface-variant rounded-lg py-3 px-4 flex flex-col items-start gap-1 hover:border-outline transition-colors" aria-label="Titanium Bracelet strap option">
+<span class="font-label-md text-on-background">Titanium Bracelet</span>
+<span class="font-body-sm text-on-surface-variant">+$850</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sticky Action Block -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-md shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col gap-4 mt-4">
+<!-- Trust Badges -->
+<div class="flex items-center gap-4 text-on-surface-variant font-body-sm pb-4 border-b border-surface-variant/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+<span>Ships in 24h</span>
+</div>
+<div class="w-px h-4 bg-outline-variant"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>5-Year Warranty</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-headline-md py-4 rounded-lg hover:bg-surface-tint transition-all duration-300 shadow-[inset_0_2px_4px_rgba(255,255,255,0.2)] flex items-center justify-center gap-2 group" aria-label="Add Chronograph Masterpiece to Cart">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">shopping_cart</span>
+                        Add to Cart
+                    </button>
+<button class="w-full bg-transparent border-2 border-on-background text-on-background font-label-md text-headline-md py-3.5 rounded-lg hover:bg-surface-container-low transition-colors duration-300" aria-label="Buy Now Instant Checkout">
+                        Buy Now
+                    </button>
+</div>
+</div>
+</div>
+
+<!-- Sticky Mobile Checkout Bar -->
+<div class="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-xl border-t border-outline-variant/30 shadow-2xl z-40 flex items-center justify-between gap-4">
+<div>
+<div class="font-headline-md text-base font-bold text-on-background">$14,500</div>
+<div class="text-xs text-primary font-medium">In Stock • Express Shipping</div>
+</div>
+<button class="bg-primary text-on-primary font-label-md px-6 py-3 rounded-lg hover:bg-surface-tint flex items-center gap-2 shadow-md">
+<span class="material-symbols-outlined text-sm">shopping_cart</span>
+    Add to Cart
+</button>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-xl bg-surface-container-lowest dark:bg-background border-t border-outline-variant mt-xl">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-md px-gutter max-w-container-max mx-auto">
+<div class="col-span-2 lg:col-span-2 flex flex-col gap-4">
+<span class="font-display-lg text-headline-sm font-bold text-on-background">AVENZON</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 AVENZON Global Marketplace. All rights reserved.</p>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200" href="#">Vendor Agreement</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200" href="#">Accessibility</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface underline decoration-primary/30 underline-offset-4 transition-all duration-200" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+</body></html>

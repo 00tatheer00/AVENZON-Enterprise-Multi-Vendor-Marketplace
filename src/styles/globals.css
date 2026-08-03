@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #faf8ff;
+    --foreground: #191b23;
+    --primary: #004ac6;
+    --primary-container: #2563eb;
+    --on-primary-container: #eeefff;
+    --surface-container-low: #f3f3fe;
+    --surface-container: #ededf9;
+    --surface-container-high: #e7e7f3;
+    --surface-container-lowest: #ffffff;
+    --outline: #737686;
+    --outline-variant: #c3c6d7;
+    --on-surface-variant: #434655;
+    --error: #ba1a1a;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #191b23;
+    --foreground: #faf8ff;
+    --primary: #b4c5ff;
+    --primary-container: #003ea8;
+    --on-primary-container: #dbe1ff;
+    --surface-container-low: #2e3039;
+    --surface-container: #3a3c46;
+    --surface-container-high: #464853;
+    --surface-container-lowest: #1f2129;
+    --outline: #8e90a0;
+    --outline-variant: #434655;
+    --on-surface-variant: #c3c6d7;
+    --error: #ffb4ab;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+
+  .dark .glass-panel {
+    background: rgba(25, 27, 35, 0.85);
+    border: 1px solid rgba(67, 70, 85, 0.5);
+  }
+
+  .gradient-hero {
+    background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 40%);
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}

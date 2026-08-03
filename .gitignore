@@ -1,0 +1,26 @@
+# Next.js & Node.js Output
+.next/
+out/
+build/
+dist/
+node_modules/
+
+# Environment Files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE & OS Files
+.DS_Store
+*.pem
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Task & Agent Logs
+*.log

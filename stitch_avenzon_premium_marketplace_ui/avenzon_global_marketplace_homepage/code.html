@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AVENZON Global Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e7e7f3",
+                      "outline": "#737686",
+                      "surface-container-low": "#f3f3fe",
+                      "inverse-primary": "#b4c5ff",
+                      "secondary-fixed-dim": "#ffb95f",
+                      "inverse-surface": "#2e3039",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "on-primary-container": "#eeefff",
+                      "on-secondary-fixed": "#2a1700",
+                      "tertiary": "#4e5566",
+                      "on-surface": "#191b23",
+                      "secondary": "#855300",
+                      "secondary-fixed": "#ffddb8",
+                      "tertiary-fixed": "#dce2f7",
+                      "on-secondary-container": "#684000",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#00174b",
+                      "surface-bright": "#faf8ff",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "inverse-on-surface": "#f0f0fb",
+                      "surface-dim": "#d9d9e5",
+                      "on-primary": "#ffffff",
+                      "on-background": "#191b23",
+                      "tertiary-container": "#666d7f",
+                      "on-secondary-fixed-variant": "#653e00",
+                      "primary-container": "#2563eb",
+                      "error": "#ba1a1a",
+                      "surface": "#faf8ff",
+                      "background": "#faf8ff",
+                      "outline-variant": "#c3c6d7",
+                      "secondary-container": "#fea619",
+                      "primary-fixed": "#dbe1ff",
+                      "on-surface-variant": "#434655",
+                      "on-error": "#ffffff",
+                      "on-tertiary-container": "#ecf0ff",
+                      "primary": "#004ac6",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#0053db",
+                      "surface-container": "#ededf9",
+                      "on-tertiary-fixed": "#141b2b",
+                      "tertiary-fixed-dim": "#c0c6db",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#404758",
+                      "surface-variant": "#e1e2ed",
+                      "surface-container-highest": "#e1e2ed"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "base": "4px",
+                      "margin-mobile": "16px",
+                      "sm": "16px",
+                      "xs": "8px",
+                      "xl": "80px",
+                      "lg": "48px",
+                      "margin-desktop": "48px",
+                      "md": "24px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-xl": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "30px",
+                              {
+                                      "lineHeight": "38px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "60px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body { background-color: #F8FAFC; color: #111827; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .product-card {
+            background-color: #FFFFFF;
+            border: 1px solid #F1F5F9;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-4px);
+        }
+        .product-card-img {
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .product-card-img {
+            transform: scale(1.05);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .gradient-hero {
+            background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 40%);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-surface/85 dark:bg-inverse-surface/85 font-body-md text-primary dark:text-inverse-primary docked full-width top-0 sticky backdrop-blur-xl border-b border-outline-variant/30 shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+<!-- Brand -->
+<a class="text-headline-lg font-headline-lg font-black tracking-tighter text-primary dark:text-inverse-primary flex items-center gap-2" href="#" aria-label="AVENZON Home">
+                AVENZON
+            </a>
+<!-- Navigation Links -->
+<div class="hidden md:flex items-center gap-md">
+<a class="text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#">Marketplace</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#">Categories</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#">Vendors</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#">Become a Seller</a>
+</div>
+<!-- Search (Right Aligned per JSON) -->
+<div class="hidden lg:flex flex-1 max-w-md mx-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search premium products or vendors..." type="text" aria-label="Search marketplace"/>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-300 scale-95 active:opacity-80 p-2 rounded-full flex items-center justify-center" aria-label="Select Language">
+<span class="material-symbols-outlined">language</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-300 scale-95 active:opacity-80 p-2 rounded-full flex items-center justify-center" aria-label="View Wishlist">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<a class="text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 ml-sm" href="#">Login</a>
+<a class="bg-primary-container text-on-primary-container font-label-md text-label-md px-4 py-2 rounded-lg hover:opacity-90 transition-opacity ml-xs flex items-center gap-2" href="#" aria-label="Shopping Cart">
+<span class="material-symbols-outlined text-sm">shopping_cart</span>
+                    Cart
+                </a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative pt-xl pb-32 overflow-hidden gradient-hero border-b border-surface-variant">
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-lg items-center">
+<!-- Hero Copy -->
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 bg-surface-container-high px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface-variant mb-6 border border-outline-variant/50">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                    Now available globally
+                </div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">
+                    The New Standard of <br/>
+<span class="text-primary-container">Global Commerce</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl">
+                    Discover a curated marketplace where technological precision meets premium quality. AI-driven curation for the modern discerning buyer.
+                </p>
+<!-- AI Search Bar in Hero -->
+<div class="glass-panel rounded-xl p-2 flex items-center shadow-lg w-full max-w-lg mb-8 relative z-20">
+<span class="material-symbols-outlined text-primary-container pl-3">magic_button</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-body-md py-3 px-4 placeholder:text-outline" placeholder="Describe what you are looking for..." type="text"/>
+<button class="bg-primary-container text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg hover:opacity-90 transition-all shadow-md shrink-0">
+                        Search
+                    </button>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="A close-up portrait of a diverse modern professional in a minimalist, bright, high-key light mode setting. The background is slightly blurred showing a contemporary tech office. Soft natural lighting, premium corporate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGhccwaerxFnTN3Hq8qYrhQ9y0AkTQH_0R8qVpha8U_hjfKwSepRP7Z6bgZZaPQStmM388VutBfWJ5xWZLMw4OkGm4zwzXf9wi81Oy8bNfyW_pBlLZzSaDCCIH8rlafwWrZH6QIKKNJd2kMt0_Rv0DzCgnNrrGsRP2_VmWJOXj1qjsvu5x-h0K9RN8UJK7Z77i8WbfxuAh2xG9izr3tUScLJ77tOrojhXcfi8Y50ipIio0Yd_m1x9Ggg"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="A close-up portrait of an elegant professional woman in a minimalist, bright, high-key light mode setting. The background is slightly blurred showing a modern gallery space. Soft natural lighting, premium corporate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlzXYFTBSpWS1BkzxuCwl007uaAEZDPBa5UGvC2ELD1NOpiTNYmXYG73LaBm3H0D7f2KT72JoKgPM-EGE5bofXfSUxsAlJQqa3FgD_s5kp_6IBeL1e78x8vHxFCZPr-9OxoVsX7qAJLFVbZpqUcCJIGu3mnLeSEozzUAP5HI97okuzuSB_PgiM2Ws4HGBSWVKQIugvWXejlXqFknVWz1477nhOgYbsPRQmjGtkiQeu1IjEh6CMJdG2CQ"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="A close-up portrait of a stylish creative professional in a minimalist, bright, high-key light mode setting. The background is slightly blurred showing a clean white studio space. Soft natural lighting, premium corporate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBub9_-auRRj6OBSfEUN8WE5RSxI7LRcfhLvrwxiJ5BljQhApbNKBbSheI9hiuMK4vGA62PiezNpQzJdyUk7DgdxoYKvntWDpP3NElGbB1DLlbwip7m1kkypkhYx-iJQIDKq327wVjD7KrWYDwxRf_K-tZ_ZAxGGJJQmkUmuIASoKh_Jmeo_bfjkBCAS-kMpSQnTGYGuRDLmApx7vKg8B5QMpXGKI6Z445AUmm7O1UD-hh6vYckB76Wbw"/>
+</div>
+<span>Joined by 2M+ premium buyers</span>
+</div>
+</div>
+<!-- Hero Imagery / Floating Cards -->
+<div class="relative h-[600px] hidden lg:block">
+<!-- Main Product Card -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 glass-panel rounded-xl p-4 shadow-2xl z-20 transform -rotate-2">
+<div class="rounded-lg overflow-hidden mb-4 bg-surface-container aspect-square relative">
+<img class="w-full h-full object-cover" data-alt="A sleek, high-end minimalist mechanical watch floating in a bright, pristine white studio environment. Dramatic but soft top lighting creating subtle reflections on the metallic and glass surfaces. Ultra-high fidelity product photography, modern luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXYyVKNJ2BKwV4vXJcryd0okqQlAEDG6zL1qgQuOi400blw4rrJEm1n33xAVB2M8s4rKLxQ1X7sGzwI6gtkR60dH5cZhmum7ik4wtIzIaYPn-ba2diVBz1NLu0jOtg3vVPj-Xef-vKmo91RYyxOUYMgP_4EbGM0_1gI0b8YBBpJcQcMODiJVUo_ypU2TDjf8fvGqfZvDQCALrF0QLdCwJ323fkOElTpKDXJJndJMOGDxg7JWz0TC8Xhw"/>
+<div class="absolute top-2 right-2 bg-surface/90 backdrop-blur rounded-full p-1.5 shadow-sm">
+<span class="material-symbols-outlined text-sm text-on-surface">favorite</span>
+</div>
+</div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-label-md text-label-md text-on-surface">Aero Chronograph</h3>
+<span class="font-label-md text-label-md text-on-surface">$1,250</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mb-3">Horology Haus</p>
+<button class="w-full border border-outline-variant text-on-surface font-label-sm text-label-sm py-2 rounded-lg hover:bg-surface-container-low transition-colors">
+                        Quick View
+                    </button>
+</div>
+<!-- Secondary Card -->
+<div class="absolute top-20 right-0 w-64 glass-panel rounded-xl p-3 shadow-xl z-10 transform rotate-6 opacity-90 blur-[1px]">
+<div class="rounded-lg overflow-hidden mb-3 bg-surface-container aspect-[4/3]">
+<img class="w-full h-full object-cover" data-alt="Premium minimalist over-ear wireless headphones resting on a clean white marble block. Bright, diffuse lighting creating a soft, airy light-mode aesthetic. High-fidelity product shot, tech luxury style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiu_mDARwkFFU-f22qJ6nGB9K6-DaViiATZlkFsm6wFn0CGZG-t4P7c2xMDmVYfy7-kGB9MI0s-fJ7DxepYeKp4YkMo-lw4NOFGR8UP1D3wIkgExIil8Lg9wcEtjcHlp5FuRJrzcLdTRdbiB-OYc9HcJKQXLrs7u9qexWvgSLjkODBp2QrJdW5IAgX3PR9CINr-utl1Y2zUvSNSAUfUKYP56FndL7YLL44VXU-kDjRJiZHfBZLSxUurA"/>
+</div>
+<div class="flex justify-between items-center">
+<h3 class="font-label-sm text-label-sm text-on-surface truncate">Sonic Pro Max</h3>
+<span class="font-label-sm text-label-sm text-on-surface">$349</span>
+</div>
+</div>
+<!-- Tertiary Card -->
+<div class="absolute bottom-20 left-10 w-56 glass-panel rounded-xl p-3 shadow-xl z-10 transform -rotate-6 opacity-80 blur-[2px]">
+<div class="rounded-lg overflow-hidden mb-3 bg-surface-container aspect-[4/3]">
+<img class="w-full h-full object-cover" data-alt="A modern, minimalist architectural leather tote bag sitting in a bright, white, sunlit room. Soft shadows, high-key lighting, premium editorial fashion photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2A6YTKIR4ypVirfDxlPxzna3I5ansXx9k8eSZIxmQysJVdUXFuYEz4e_PrWMzR3aqklsNMFzw12gL9htgbbiwPxtE-XvcLVXQCSgHrbRrDtNXgNFbZs5A2paon9GSKiqImwn0AI-B3m7txyjqfDtp4RwkfmmY7svVRmRDyEk2vJUrUZ8Zf5OP8ZrSjEFSb8r4LC15m-E2W5krZiIuo-qH_zbtpdHuOUny8UCVS9oWLcTQe8e9hA6-9g"/>
+</div>
+<div class="flex justify-between items-center">
+<h3 class="font-label-sm text-label-sm text-on-surface truncate">Structure Tote</h3>
+<span class="font-label-sm text-label-sm text-on-surface">$590</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Vendor Trust Badges Section -->
+<section class="bg-surface-container-low py-10 border-b border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">verified</span>
+</div>
+<div>
+<h4 class="font-label-md text-on-surface font-semibold">500+ Verified Vendors</h4>
+<p class="font-body-sm text-xs text-on-surface-variant">Vetted global suppliers & creators</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">local_shipping</span>
+</div>
+<div>
+<h4 class="font-label-md text-on-surface font-semibold">Global Express Delivery</h4>
+<p class="font-body-sm text-xs text-on-surface-variant">Fully tracked express shipping</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">shield</span>
+</div>
+<div>
+<h4 class="font-label-md text-on-surface font-semibold">100% Buyer Protection</h4>
+<p class="font-body-sm text-xs text-on-surface-variant">Encrypted payment & money back</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">support_agent</span>
+</div>
+<div>
+<h4 class="font-label-md text-on-surface font-semibold">24/7 Priority Support</h4>
+<p class="font-body-sm text-xs text-on-surface-variant">Dedicated concierge support</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-inverse-surface font-label-sm text-label-sm font-body-sm text-body-sm text-primary dark:text-inverse-primary full-width border-t border-outline-variant/20 mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-margin-desktop py-xl max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1 flex flex-col items-start">
+<a class="text-headline-md font-headline-md font-bold text-on-surface dark:text-inverse-on-surface mb-4" href="#">
+                    AVENZON
+                </a>
+<p class="text-on-surface-variant dark:text-surface-variant font-body-sm text-body-sm mb-6 max-w-xs">
+                    The premium multi-vendor marketplace prioritizing trust, technological precision, and a high-fidelity shopping experience.
+                </p>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors scale-95 active:opacity-80" href="#">
+<span class="material-symbols-outlined">language</span>
+</a>
+</div>
+</div>
+<div class="col-span-1 flex flex-col gap-3 mt-4 md:mt-0">
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Company</h4>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">About Us</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Seller Central</a>
+</div>
+<div class="col-span-1 flex flex-col gap-3 mt-4 md:mt-0">
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Support</h4>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Shipping Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Contact</a>
+</div>
+<div class="col-span-1 flex flex-col gap-3 mt-4 md:mt-0">
+<h4 class="font-label-md text-label-md text-on-surface mb-2">Legal</h4>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy</a>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 px-margin-desktop py-6 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant dark:text-surface-variant font-body-sm text-body-sm">
+                © 2024 AVENZON Global Marketplace. All rights reserved.
+            </p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline-variant">payments</span>
+<span class="material-symbols-outlined text-outline-variant">credit_card</span>
+<span class="material-symbols-outlined text-outline-variant">account_balance</span>
+</div>
+</div>
+</footer>
+</body></html>
