@@ -1,4 +1,8 @@
+'use client';
+
 import * as React from 'react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { ProductCard, type ProductSummary } from '@/components/shared/product-card';
 
 const mockProducts: ProductSummary[] = [
@@ -31,7 +35,7 @@ const mockProducts: ProductSummary[] = [
   },
   {
     id: 'prod-3',
-    title: 'EcoStat Touch Thermostat',
+    title: 'EcoStat Touch Smart Thermostat',
     slug: 'ecostat-touch-thermostat',
     price: 199.0,
     imageSrc:
@@ -43,7 +47,7 @@ const mockProducts: ProductSummary[] = [
   },
   {
     id: 'prod-4',
-    title: 'Nexus Studio Pro Wireless',
+    title: 'Nexus Studio Pro Wireless Headphones',
     slug: 'nexus-studio-pro',
     price: 349.0,
     imageSrc:
@@ -57,20 +61,54 @@ const mockProducts: ProductSummary[] = [
 ];
 
 export function CuratedProductGrid() {
+  const [activeTab, setActiveTab] = React.useState('All Products');
+
+  const tabs = ['All Products', 'Luxury Horology', 'Smart Tech', 'Audiophile Sound'];
+
   return (
     <section className="py-16 md:py-24">
       <div className="mx-auto max-w-[1280px] px-6">
-        <div className="flex items-end justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-3xl font-bold text-foreground">Curated Marketplace Trending</h2>
-            <p className="text-sm text-on-surface-variant mt-1">High-demand items verified for quality and global delivery.</p>
+            <span className="text-xs font-bold uppercase tracking-wider text-primary">Handpicked Selection</span>
+            <h2 className="text-3xl font-extrabold text-foreground mt-1">Curated Marketplace Trending</h2>
+            <p className="text-sm text-on-surface-variant mt-1">Verified for build quality, authenticity, and express worldwide delivery.</p>
+          </div>
+
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap gap-1.5 rounded-full border border-outline-variant/30 bg-surface-container-low p-1.5">
+            {tabs.map((t) => (
+              <button
+                key={t}
+                onClick={() => setActiveTab(t)}
+                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
+                  activeTab === t
+                    ? 'bg-primary text-white shadow-sm'
+                    : 'text-on-surface-variant hover:text-foreground'
+                }`}
+              >
+                {t}
+              </button>
+            ))}
           </div>
         </div>
 
+        {/* Product Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {mockProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/catalog"
+            className="inline-flex items-center gap-2 rounded-full border border-outline-variant/40 bg-surface-container-lowest px-6 py-3 text-sm font-bold text-foreground shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
+          >
+            <span>Explore Full 420+ Product Catalog</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
