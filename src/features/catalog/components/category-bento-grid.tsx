@@ -25,9 +25,10 @@ export function CategoryBentoGrid() {
           {/* Main Feature (2x2) */}
           <div className="group relative md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden cursor-pointer shadow-md">
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo6OEE9zZPpRNbO0rNN4YNRAqyakQg9tVxK9G-xYgt6XlryXhV_poPHzhmm8IkYVcp9lKJMAi3aCbgGrMJQhPtXaAc7L25jE4PUEebZgP-Xpa9GfDhaC_6P18l6oZCi4Vl1lct4mlLxHF5ekO94hsqTR5CdEg_u4P2tQGaZhNyBTtbXpSSpmO-gjwpVGy6AH1_p6PXJM_AIV_QmFffE2dKJQUZ2W3LBm30umikj2U1jRp4ANkFf5c2yw"
-              alt="Modern Living"
+              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85"
+              alt="Modern Living & Architecture"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -45,9 +46,10 @@ export function CategoryBentoGrid() {
           {/* Secondary Top (2x1) */}
           <div className="group relative md:col-span-2 md:row-span-1 rounded-2xl overflow-hidden cursor-pointer shadow-md min-h-[250px]">
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPcCPU3kxDDGYqmWKbAcX7xbRsGsaZ2LMVqOkPFSwuPA7X1tQwTiBF3yp47KvY51CdRv3aPN-0XoocHZD-CFqpi4NDKoisOm3_bex6O7F64hd--cjZXfDH5Jwyskvnex1KymFbzTKKnLn82f-Bs4pJ-1lLSixTKljXCMfvQFigllu_r1baH8qHJ0qV9aOXQNuRVi3EqwwuP6bVHDYNlnzQwD0FCaQpIOQlIYrZAvLDBKpX9VJf-qP_iA"
+              src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1200&q=85"
               alt="Luxury Timepieces"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -60,9 +62,10 @@ export function CategoryBentoGrid() {
           {/* Secondary Bottom 1 (1x1) */}
           <div className="group relative md:col-span-1 md:row-span-1 rounded-2xl overflow-hidden cursor-pointer shadow-md min-h-[220px]">
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfqxsQExG-8EY87Yh2pdWL8zQR11_2jFdRvgJ6mAjcWASLoxWztaq0_hKIh-ZjkjbwbBXoQHxCG2LVUAdt9Mr-fxXvUvb5-Ji-jvVMFQogkNCeKcosJPMlWsD3B0WjGM_AL1U8J0uerkzw957f0bX9zoqtkSyGYeaWU7f84G8yq6Kl3QJ7Q-sDWA1F038OpFKCFxlP2iLS-rD2LWRvHZBw3UEbozmnY5wYR3gUGiR-2RMnAYDryHJKAQ"
-              alt="Electronics"
+              src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=85"
+              alt="Consumer Tech & Earbuds"
               fill
+              sizes="(max-width: 768px) 100vw, 25vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

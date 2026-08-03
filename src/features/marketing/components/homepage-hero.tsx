@@ -79,9 +79,9 @@ export function HomepageHero() {
             {/* Buyer Social Proof */}
             <div className="mt-8 flex items-center gap-4 text-xs font-medium text-on-surface-variant pt-6 border-t border-outline-variant/30">
               <div className="flex -space-x-2">
-                <img className="h-9 w-9 rounded-full border-2 border-surface object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGhccwaerxFnTN3Hq8qYrhQ9y0AkTQH_0R8qVpha8U_hjfKwSepRP7Z6bgZZaPQStmM388VutBfWJ5xWZLMw4OkGm4zwzXf9wi81Oy8bNfyW_pBlLZzSaDCCIH8rlafwWrZH6QIKKNJd2kMt0_Rv0DzCgnNrrGsRP2_VmWJOXj1qjsvu5x-h0K9RN8UJK7Z77i8WbfxuAh2xG9izr3tUScLJ77tOrojhXcfi8Y50ipIio0Yd_m1x9Ggg" alt="User 1" />
-                <img className="h-9 w-9 rounded-full border-2 border-surface object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlzXYFTBSpWS1BkzxuCwl007uaAEZDPBa5UGvC2ELD1NOpiTNYmXYG73LaBm3H0D7f2KT72JoKgPM-EGE5bofXfSUxsAlJQqa3FgD_s5kp_6IBeL1e78x8vHxFCZPr-9OxoVsX7qAJLFVbZpqUcCJIGu3mnLeSEozzUAP5HI97okuzuSB_PgiM2Ws4HGBSWVKQIugvWXejlXqFknVWz1477nhOgYbsPRQmjGtkiQeu1IjEh6CMJdG2CQ" alt="User 2" />
-                <img className="h-9 w-9 rounded-full border-2 border-surface object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBub9_-auRRj6OBSfEUN8WE5RSxI7LRcfhLvrwxiJ5BljQhApbNKBbSheI9hiuMK4vGA62PiezNpQzJdyUk7DgdxoYKvntWDpP3NElGbB1DLlbwip7m1kkypkhYx-iJQIDKq327wVjD7KrWYDwxRf_K-tZ_ZAxGGJJQmkUmuIASoKh_Jmeo_bfjkBCAS-kMpSQnTGYGuRDLmApx7vKg8B5QMpXGKI6Z445AUmm7O1UD-hh6vYckB76Wbw" alt="User 3" />
+                <img className="h-9 w-9 rounded-full border-2 border-surface object-cover shadow-sm" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="User 1" />
+                <img className="h-9 w-9 rounded-full border-2 border-surface object-cover shadow-sm" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="User 2" />
+                <img className="h-9 w-9 rounded-full border-2 border-surface object-cover shadow-sm" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80" alt="User 3" />
               </div>
               <div>
                 <div className="font-bold text-foreground">Joined by 2M+ Buyers Worldwide</div>
@@ -100,8 +100,8 @@ export function HomepageHero() {
             >
               <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-surface-container">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXYyVKNJ2BKwV4vXJcryd0okqQlAEDG6zL1qgQuOi400blw4rrJEm1n33xAVB2M8s4rKLxQ1X7sGzwI6gtkR60dH5cZhmum7ik4wtIzIaYPn-ba2diVBz1NLu0jOtg3vVPj-Xef-vKmo91RYyxOUYMgP_4EbGM0_1gI0b8YBBpJcQcMODiJVUo_ypU2TDjf8fvGqfZvDQCALrF0QLdCwJ323fkOElTpKDXJJndJMOGDxg7JWz0TC8Xhw"
-                  alt="Aero Chronograph"
+                  src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85"
+                  alt="Aero Chronograph Masterpiece"
                   fill
                   sizes="320px"
                   className="object-cover"
@@ -128,8 +128,8 @@ export function HomepageHero() {
             >
               <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-surface-container">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiu_mDARwkFFU-f22qJ6nGB9K6-DaViiATZlkFsm6wFn0CGZG-t4P7c2xMDmVYfy7-kGB9MI0s-fJ7DxepYeKp4YkMo-lw4NOFGR8UP1D3wIkgExIil8Lg9wcEtjcHlp5FuRJrzcLdTRdbiB-OYc9HcJKQXLrs7u9qexWvgSLjkODBp2QrJdW5IAgX3PR9CINr-utl1Y2zUvSNSAUfUKYP56FndL7YLL44VXU-kDjRJiZHfBZLSxUurA"
-                  alt="Sonic Pro Max"
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=85"
+                  alt="Sonic Pro Max Studio"
                   fill
                   sizes="256px"
                   className="object-cover"
@@ -150,8 +150,8 @@ export function HomepageHero() {
             >
               <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-surface-container">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2A6YTKIR4ypVirfDxlPxzna3I5ansXx9k8eSZIxmQysJVdUXFuYEz4e_PrWMzR3aqklsNMFzw12gL9htgbbiwPxtE-XvcLVXQCSgHrbRrDtNXgNFbZs5A2paon9GSKiqImwn0AI-B3m7txyjqfDtp4RwkfmmY7svVRmRDyEk2vJUrUZ8Zf5OP8ZrSjEFSb8r4LC15m-E2W5krZiIuo-qH_zbtpdHuOUny8UCVS9oWLcTQe8e9hA6-9g"
-                  alt="Structure Tote"
+                  src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=85"
+                  alt="Structure Leather Tote"
                   fill
                   sizes="224px"
                   className="object-cover"
