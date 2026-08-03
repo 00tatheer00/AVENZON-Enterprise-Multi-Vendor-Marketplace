@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { fontInter } from '@/core/fonts';
 import { MasterProvider } from '@/core/providers';
-import { TopNavbar } from '@/components/layouts/top-navbar';
-import { Footer } from '@/components/layouts/footer';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -31,11 +29,9 @@ export default function RootLayout({
             Skip to main content
           </a>
 
-          <TopNavbar />
-          <main id="main-content" className="flex-1">
+          <main id="main-content" className="flex-1 flex flex-col">
             {children}
           </main>
-          <Footer />
         </MasterProvider>
       </body>
     </html>
