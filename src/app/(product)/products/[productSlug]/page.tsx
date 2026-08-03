@@ -4,6 +4,7 @@ import { ProductGallery } from '@/features/products/components/product-gallery';
 import { RatingStars } from '@/components/shared/rating-stars';
 import { PriceDisplay } from '@/components/shared/price-display';
 import { MultiVendorBadge } from '@/components/shared/multi-vendor-badge';
+import { StickyMobileCartBar } from '@/components/layouts/sticky-mobile-cart-bar';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, ShieldCheck, Truck, RotateCcw } from 'lucide-react';
 
@@ -21,7 +22,7 @@ const pdpImages = [
 
 export default function ProductDetailPage() {
   return (
-    <div className="mx-auto max-w-[1280px] px-6 py-8">
+    <div className="mx-auto max-w-[1280px] px-6 py-8 pb-24 lg:pb-8">
       <Breadcrumb
         items={[
           { label: 'Marketplace', href: '/catalog' },
@@ -40,7 +41,7 @@ export default function ProductDetailPage() {
         <div className="flex flex-col gap-6 lg:col-span-5">
           <div className="border-b border-outline-variant/30 pb-6">
             <MultiVendorBadge storeName="Maison Horlogerie" rating={4.9} isVerified />
-            <h1 className="mt-2 text-3xl font-extrabold text-foreground">
+            <h1 className="mt-2 text-2xl sm:text-3xl font-extrabold text-foreground">
               Chronograph Masterpiece Tourbillon
             </h1>
             
@@ -69,7 +70,7 @@ export default function ProductDetailPage() {
 
           {/* Buy Box Container */}
           <div className="rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-6 shadow-sm flex flex-col gap-4 dark:bg-background">
-            <div className="flex items-center justify-between text-xs text-on-surface-variant pb-4 border-b border-outline-variant/30">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-on-surface-variant pb-4 border-b border-outline-variant/30">
               <span className="flex items-center gap-1.5"><Truck className="h-4 w-4 text-primary" /> Ships in 24h</span>
               <span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-primary" /> 5-Year Warranty</span>
               <span className="flex items-center gap-1.5"><RotateCcw className="h-4 w-4 text-primary" /> 30-Day Return</span>
@@ -85,6 +86,9 @@ export default function ProductDetailPage() {
           </div>
         </div>
       </div>
+
+      {/* Mobile-Only Fixed Bottom Checkout Bar */}
+      <StickyMobileCartBar price={14500} originalPrice={16000} />
     </div>
   );
 }
