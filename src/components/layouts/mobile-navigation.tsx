@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { Menu, X, ShoppingBag, Heart, Search, Globe, ShieldCheck } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X, Search, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function MobileNavigation() {
@@ -23,8 +24,14 @@ export function MobileNavigation() {
         <div className="fixed inset-0 z-50 flex flex-col bg-background/98 backdrop-blur-2xl p-6">
           {/* Header */}
           <div className="flex items-center justify-between border-b border-outline-variant/30 pb-4">
-            <Link href="/" onClick={() => setIsOpen(false)} className="text-2xl font-black text-primary">
-              AVENZON
+            <Link href="/" onClick={() => setIsOpen(false)}>
+              <Image
+                src="/logo.png"
+                alt="AVENZON Logo"
+                width={140}
+                height={36}
+                className="h-8 w-auto object-contain dark:brightness-110"
+              />
             </Link>
             <Button
               variant="ghost"

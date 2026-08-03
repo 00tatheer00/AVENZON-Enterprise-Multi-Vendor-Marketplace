@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search, ShoppingBag, Heart, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeSwitcher } from './theme-switcher';
@@ -13,9 +14,16 @@ export function Header() {
         {/* Mobile Navigation Trigger */}
         <MobileNavigation />
 
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-2 text-2xl font-black tracking-tighter text-primary" aria-label="AVENZON Home">
-          AVENZON
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90" aria-label="AVENZON Home">
+          <Image
+            src="/logo.png"
+            alt="AVENZON Enterprise Marketplace"
+            width={160}
+            height={40}
+            priority
+            className="h-9 w-auto object-contain dark:brightness-110"
+          />
         </Link>
 
         {/* Navigation Links */}

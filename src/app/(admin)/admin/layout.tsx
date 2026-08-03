@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Shield, Users, Building2, Scale, DollarSign, Settings, Bell } from 'lucide-react';
 import { Sidebar, type SidebarNavItem } from '@/components/layouts/sidebar';
@@ -26,11 +27,15 @@ export default function AdminLayout({
         currentPath="/admin/vendors"
         header={
           <div className="flex items-center gap-2 px-2">
-            <Shield className="h-6 w-6 text-primary" />
-            <div>
-              <div className="text-base font-black tracking-tight text-foreground">AVENZON ADMIN</div>
-              <div className="text-[10px] font-bold uppercase text-primary">Governance Portal</div>
-            </div>
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="AVENZON Admin"
+                width={140}
+                height={36}
+                className="h-8 w-auto object-contain dark:brightness-110"
+              />
+            </Link>
           </div>
         }
       />

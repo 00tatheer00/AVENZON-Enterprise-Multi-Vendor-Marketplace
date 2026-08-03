@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -8,8 +9,14 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
           {/* Brand Info */}
           <div className="col-span-2 flex flex-col items-start lg:col-span-2">
-            <Link href="/" className="text-2xl font-bold text-foreground">
-              AVENZON
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="AVENZON Logo"
+                width={160}
+                height={40}
+                className="h-9 w-auto object-contain dark:brightness-110"
+              />
             </Link>
             <p className="mt-4 max-w-xs text-sm text-on-surface-variant">
               The premium multi-vendor marketplace prioritizing trust, technological precision, and a high-fidelity shopping experience.

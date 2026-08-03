@@ -1,15 +1,23 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { Search, ShoppingBag, Heart, User, Globe } from 'lucide-react';
+import Image from 'next/image';
+import { Search, ShoppingBag, Heart, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function TopNavbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-outline-variant/30 bg-surface/85 backdrop-blur-xl dark:bg-background/85">
       <div className="mx-auto flex h-20 max-w-[1280px] items-center justify-between px-6">
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-2 text-2xl font-black tracking-tighter text-primary">
-          AVENZON
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
+          <Image
+            src="/logo.png"
+            alt="AVENZON Enterprise Marketplace"
+            width={160}
+            height={40}
+            priority
+            className="h-9 w-auto object-contain dark:brightness-110"
+          />
         </Link>
 
         {/* Navigation Links */}
