@@ -59,7 +59,7 @@ export function ProductCard({ product, onQuickView, onAddToCart }: ProductCardPr
         </button>
 
         {/* Product Image */}
-        <Link href={`/products/${product.slug}`}>
+        <Link href={`/products/${product.slug}`} className="relative block h-full w-full">
           <Image
             src={product.imageSrc}
             alt={product.title}

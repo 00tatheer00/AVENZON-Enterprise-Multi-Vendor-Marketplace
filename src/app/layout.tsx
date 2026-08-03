@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={fontInter.variable} suppressHydrationWarning>
-      <body className="flex min-h-screen flex-col font-sans antialiased">
+      <body className="flex min-h-screen flex-col font-sans antialiased" suppressHydrationWarning>
         <MasterProvider>
           {/* Accessibility Skip Link */}
           <a
