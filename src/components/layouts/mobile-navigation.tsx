@@ -28,9 +28,9 @@ export function MobileNavigation() {
               <Image
                 src="/logo.png"
                 alt="AVENZON Logo"
-                width={140}
-                height={36}
-                className="h-8 w-auto object-contain dark:brightness-110"
+                width={180}
+                height={46}
+                className="h-10 w-auto object-contain dark:brightness-110"
               />
             </Link>
             <Button

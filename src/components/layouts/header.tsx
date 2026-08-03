@@ -19,10 +19,10 @@ export function Header() {
           <Image
             src="/logo.png"
             alt="AVENZON Enterprise Marketplace"
-            width={160}
-            height={40}
+            width={220}
+            height={56}
             priority
-            className="h-9 w-auto object-contain dark:brightness-110"
+            className="h-12 w-auto max-h-14 object-contain dark:brightness-110"
           />
         </Link>
 
