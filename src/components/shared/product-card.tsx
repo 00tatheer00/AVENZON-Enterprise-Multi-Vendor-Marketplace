@@ -50,21 +50,21 @@ export function ProductCard({ product, onQuickView, onAddToCart, rank, compact, 
       <div className="relative aspect-square w-full overflow-hidden bg-surface-container-low">
         {/* Discount Badge */}
         {discountPct > 0 && (
-          <div className="absolute left-2 top-2 z-10 rounded-md bg-deal px-2 py-0.5 text-[11px] font-bold text-white shadow-sm">
+          <div className="absolute left-2 top-2 z-10 rounded-md bg-deal px-2 py-0.5 text-[10px] sm:text-[11px] font-bold text-white shadow-sm">
             -{discountPct}%
           </div>
         )}
 
         {/* Text Badge (New Arrival, Top Rated, etc.) */}
         {product.badge && !discountPct && (
-          <div className="absolute left-2 top-2 z-10 rounded-md bg-primary px-2 py-0.5 text-[11px] font-bold text-white shadow-sm">
+          <div className="absolute left-2 top-2 z-10 rounded-md bg-primary px-2 py-0.5 text-[10px] sm:text-[11px] font-bold text-white shadow-sm">
             {product.badge}
           </div>
         )}
 
         {/* Rank Badge */}
         {rank && (
-          <div className="absolute left-2 bottom-2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-gold text-[11px] font-extrabold text-white shadow-md">
+          <div className="absolute left-2 bottom-2 z-10 flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-gold text-[10px] sm:text-[11px] font-extrabold text-white shadow-md">
             #{rank}
           </div>
         )}
@@ -72,7 +72,7 @@ export function ProductCard({ product, onQuickView, onAddToCart, rank, compact, 
         {/* Wishlist Toggle */}
         <button
           onClick={(e) => { e.preventDefault(); setIsWishlisted(!isWishlisted); }}
-          className="absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm hover:bg-white text-foreground transition-all shadow-sm"
+          className="absolute right-2 top-2 z-10 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm hover:bg-white text-foreground transition-all shadow-sm active:scale-95"
           aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
         >
           <Heart className={`h-3.5 w-3.5 transition-colors ${isWishlisted ? 'fill-deal text-deal' : 'text-on-surface-variant'}`} />
@@ -89,18 +89,18 @@ export function ProductCard({ product, onQuickView, onAddToCart, rank, compact, 
           />
         </Link>
 
-        {/* Hover Actions Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-2 p-2 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+        {/* Hover / Touch Action Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-1.5 p-2 bg-gradient-to-t from-black/70 via-black/30 to-transparent sm:opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-0 sm:translate-y-2 group-hover:translate-y-0">
           <button
             onClick={() => onAddToCart?.(product.id)}
-            className="flex h-9 flex-1 items-center justify-center gap-1.5 rounded-lg bg-white text-foreground text-xs font-semibold hover:bg-primary hover:text-white transition-colors shadow-md"
+            className="flex h-8 sm:h-9 flex-1 items-center justify-center gap-1.5 rounded-lg bg-white text-foreground text-[11px] sm:text-xs font-semibold hover:bg-primary hover:text-white transition-colors shadow-md active:scale-95"
           >
-            <ShoppingCart className="h-3.5 w-3.5" /> Add to Cart
+            <ShoppingCart className="h-3.5 w-3.5" /> <span className="hidden min-[380px]:inline">Add to Cart</span>
           </button>
           {onQuickView && (
             <button
               onClick={() => onQuickView(product.id)}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/90 text-foreground hover:bg-primary hover:text-white transition-colors shadow-md"
+              className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-white/90 text-foreground hover:bg-primary hover:text-white transition-colors shadow-md active:scale-95"
               aria-label="Quick View"
             >
               <Eye className="h-3.5 w-3.5" />
@@ -110,54 +110,54 @@ export function ProductCard({ product, onQuickView, onAddToCart, rank, compact, 
       </div>
 
       {/* Content */}
-      <div className={cn('flex flex-1 flex-col p-3', compact && 'p-2.5')}>
+      <div className={cn('flex flex-1 flex-col p-2.5 sm:p-3', compact && 'p-2 sm:p-2.5')}>
         {/* Vendor */}
-        <span className="text-[11px] font-medium text-primary truncate">{product.vendorName}</span>
+        <span className="text-[10px] sm:text-[11px] font-medium text-primary truncate">{product.vendorName}</span>
 
         {/* Title */}
-        <Link href={`/products/${product.slug}`} className="mt-0.5 text-sm font-semibold text-foreground hover:text-primary transition-colors line-clamp-2 leading-tight">
+        <Link href={`/products/${product.slug}`} className="mt-0.5 text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors line-clamp-2 leading-tight">
           {product.title}
         </Link>
 
         {/* Rating */}
-        <div className="mt-1.5 flex items-center gap-1">
+        <div className="mt-1 flex items-center gap-1">
           <div className="flex items-center gap-0.5 text-amber-500">
             <Star className="h-3 w-3 fill-amber-500" />
-            <span className="text-[11px] font-bold">{product.rating}</span>
+            <span className="text-[10px] sm:text-[11px] font-bold">{product.rating}</span>
           </div>
-          <span className="text-[11px] text-on-surface-variant">({product.reviewCount})</span>
+          <span className="text-[10px] sm:text-[11px] text-on-surface-variant">({product.reviewCount})</span>
         </div>
 
         {/* Price */}
-        <div className="mt-2 flex items-baseline gap-1.5 flex-wrap">
-          <span className="text-base font-bold text-foreground">{formatCurrency(product.price)}</span>
+        <div className="mt-1.5 flex items-baseline gap-1 flex-wrap">
+          <span className="text-sm sm:text-base font-bold text-foreground">{formatCurrency(product.price)}</span>
           {product.originalPrice && product.originalPrice > product.price && (
-            <span className="text-xs text-outline line-through">{formatCurrency(product.originalPrice)}</span>
+            <span className="text-[10px] sm:text-xs text-outline line-through">{formatCurrency(product.originalPrice)}</span>
           )}
           {discountPct > 0 && (
-            <span className="text-[11px] font-bold text-deal">Save {formatCurrency((product.originalPrice || 0) - product.price)}</span>
+            <span className="text-[10px] font-bold text-deal hidden min-[400px]:inline">Save {formatCurrency((product.originalPrice || 0) - product.price)}</span>
           )}
         </div>
 
         {/* Stock & Delivery */}
         {!compact && (
-          <div className="mt-2 flex flex-col gap-0.5">
+          <div className="mt-1.5 flex flex-col gap-0.5">
             {product.stock !== undefined && product.stock <= 10 && product.stock > 0 && (
-              <div className="flex items-center gap-1 text-[11px] font-medium text-deal">
+              <div className="flex items-center gap-1 text-[10px] font-medium text-deal">
                 <Package className="h-3 w-3" />
                 Only {product.stock} left in stock
               </div>
             )}
             {product.stock !== undefined && product.stock > 10 && (
-              <div className="flex items-center gap-1 text-[11px] font-medium text-fresh">
+              <div className="flex items-center gap-1 text-[10px] font-medium text-fresh">
                 <Package className="h-3 w-3" />
                 In Stock
               </div>
             )}
             {product.freeDelivery && (
-              <div className="flex items-center gap-1 text-[11px] font-medium text-on-surface-variant">
-                <Truck className="h-3 w-3" />
-                {product.deliveryDate ? `FREE delivery ${product.deliveryDate}` : 'FREE delivery'}
+              <div className="flex items-center gap-1 text-[10px] font-medium text-on-surface-variant truncate">
+                <Truck className="h-3 w-3 shrink-0" />
+                <span className="truncate">{product.deliveryDate ? `FREE ${product.deliveryDate}` : 'FREE delivery'}</span>
               </div>
             )}
           </div>
