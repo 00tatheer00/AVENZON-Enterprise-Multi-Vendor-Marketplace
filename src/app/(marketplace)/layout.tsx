@@ -2,6 +2,8 @@ import * as React from 'react';
 import { AnnouncementBar } from '@/components/layouts/announcement-bar';
 import { Header } from '@/components/layouts/header';
 import { Footer } from '@/components/layouts/footer';
+import { FloatingCart } from '@/components/shared/floating-cart';
+import { BackToTop } from '@/components/shared/back-to-top';
 
 export default function MarketplaceLayout({
   children,
@@ -14,6 +16,8 @@ export default function MarketplaceLayout({
       <Header />
       <div className="flex-1">{children}</div>
       <Footer />
+      <FloatingCart />
+      <BackToTop />
     </div>
   );
 }

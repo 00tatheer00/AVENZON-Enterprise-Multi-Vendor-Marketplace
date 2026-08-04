@@ -3,18 +3,59 @@
 import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Flame, Clock, ShoppingBag, ShieldCheck } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { PriceDisplay } from '@/components/shared/price-display';
+import { Flame, ShoppingCart, Star, Eye } from 'lucide-react';
+import { SectionHeader } from '@/components/shared/section-header';
+import { ProductCarousel, CarouselItem } from '@/components/shared/product-carousel';
+import { formatCurrency } from '@/core/utils/formatters';
+
+const flashProducts = [
+  {
+    id: 'fd-1', title: 'Apple iPad Pro (Mid 2026)', slug: 'ipad-pro-2026',
+    price: 799, originalPrice: 1099, discount: 27,
+    image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=85',
+    vendor: 'TechVault', rating: 4.9, reviews: 2340, soldPercent: 82, stockLeft: 4,
+  },
+  {
+    id: 'fd-2', title: 'Sony WH-1000XM6 Headphones', slug: 'sony-wh1000xm6',
+    price: 279, originalPrice: 399, discount: 30,
+    image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=85',
+    vendor: 'AudioPrime', rating: 4.8, reviews: 1820, soldPercent: 91, stockLeft: 2,
+  },
+  {
+    id: 'fd-3', title: 'Samsung Galaxy S26 Ultra', slug: 'galaxy-s26-ultra',
+    price: 899, originalPrice: 1299, discount: 31,
+    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=85',
+    vendor: 'MobileHub', rating: 4.7, reviews: 956, soldPercent: 73, stockLeft: 6,
+  },
+  {
+    id: 'fd-4', title: 'Apple Watch Ultra 3', slug: 'apple-watch-ultra-3',
+    price: 649, originalPrice: 899, discount: 28,
+    image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&w=600&q=85',
+    vendor: 'WristTech', rating: 4.9, reviews: 1123, soldPercent: 88, stockLeft: 3,
+  },
+  {
+    id: 'fd-5', title: 'DJI Mini 4 Pro Drone', slug: 'dji-mini-4-pro',
+    price: 599, originalPrice: 849, discount: 29,
+    image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=600&q=85',
+    vendor: 'SkyShop', rating: 4.8, reviews: 670, soldPercent: 67, stockLeft: 7,
+  },
+  {
+    id: 'fd-6', title: 'Bose QuietComfort Ultra', slug: 'bose-qc-ultra',
+    price: 249, originalPrice: 379, discount: 34,
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=85',
+    vendor: 'SoundElite', rating: 4.7, reviews: 890, soldPercent: 78, stockLeft: 5,
+  },
+];
 
 export function FlashDealsSection() {
-  const [timeLeft, setTimeLeft] = React.useState({ hours: 4, minutes: 18, seconds: 32 });
+  const [timeLeft, setTimeLeft] = React.useState({ hours: 7, minutes: 42, seconds: 18 });
+  const [activeTab, setActiveTab] = React.useState('All');
 
   React.useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { ...prev, minutes: 59, seconds: 59 };
+        if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
         if (prev.hours > 0) return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
         return prev;
       });
@@ -22,132 +63,112 @@ export function FlashDealsSection() {
     return () => clearInterval(timer);
   }, []);
 
-  const flashDeals = [
-    {
-      id: 'flash-1',
-      title: 'Aether Sonics ANC Pro Wireless',
-      slug: 'silence-v3-headphones',
-      price: 279.0,
-      originalPrice: 399.0,
-      discount: '30% OFF',
-      image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=85',
-      vendor: 'Aether Audio',
-      soldPercent: 82,
-      stockLeft: 4,
-    },
-    {
-      id: 'flash-2',
-      title: 'Chronos Heritage Automatic Watch',
-      slug: 'chronograph-masterpiece',
-      price: 890.0,
-      originalPrice: 1250.0,
-      discount: '28% OFF',
-      image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=85',
-      vendor: 'Horology Haus',
-      soldPercent: 94,
-      stockLeft: 2,
-    },
-    {
-      id: 'flash-3',
-      title: 'OmniHub Pro Smart Controller',
-      slug: 'omnihub-pro-controller',
-      price: 179.0,
-      originalPrice: 249.0,
-      discount: '28% OFF',
-      image: 'https://images.unsplash.com/photo-1543512214-318c7553f230?auto=format&fit=crop&w=800&q=85',
-      vendor: 'NexusTech',
-      soldPercent: 65,
-      stockLeft: 8,
-    },
-  ];
-
   return (
-    <section className="w-full py-16 bg-surface-container-low/70 border-b border-outline-variant/30">
-      <div className="mx-auto max-w-[1280px] px-6">
-        {/* Header with Live Ticking Timer */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-error/10 text-error font-bold">
-              <Flame className="h-6 w-6 animate-bounce" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-foreground">Exclusive Flash Drops</h2>
-              <p className="text-xs text-on-surface-variant">Direct vendor discounts available in limited quantity.</p>
-            </div>
-          </div>
+    <section className="w-full bg-background">
+      <div className="marketplace-container section-gap">
+        <SectionHeader
+          title="Flash Deals"
+          subtitle="Limited-time offers from top vendors — selling fast!"
+          icon={<Flame className="h-5 w-5" />}
+          badge="HOT"
+          viewAllHref="/deals"
+          countdown={timeLeft}
+          tabs={['All', 'Electronics', 'Fashion', 'Home']}
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+        />
 
-          {/* Countdown Clock */}
-          <div className="flex items-center gap-2 rounded-2xl border border-outline-variant/30 bg-surface-container-lowest px-4 py-2 shadow-sm">
-            <Clock className="h-4 w-4 text-primary shrink-0" />
-            <span className="text-xs font-semibold text-on-surface-variant mr-1">Sale Ends In:</span>
-            <div className="flex items-center gap-1 font-mono text-sm font-bold text-foreground">
-              <span className="rounded bg-primary-container px-2 py-0.5 text-on-primary-container">
-                {String(timeLeft.hours).padStart(2, '0')}h
+        {/* Main Flash Deals Layout: Featured + Carousel */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+          {/* Featured Large Deal */}
+          <div className="lg:col-span-1 rounded-xl border border-deal/20 bg-gradient-to-b from-deal/5 to-surface-container-lowest p-4 flex flex-col dark:from-deal/10 dark:to-surface-container-low">
+            <div className="relative aspect-square rounded-lg overflow-hidden bg-surface-container-low mb-3">
+              <span className="absolute left-2 top-2 z-10 rounded-md bg-deal px-2.5 py-1 text-xs font-bold text-white shadow">
+                -{flashProducts[0].discount}%
               </span>
-              :
-              <span className="rounded bg-primary-container px-2 py-0.5 text-on-primary-container">
-                {String(timeLeft.minutes).padStart(2, '0')}m
-              </span>
-              :
-              <span className="rounded bg-error text-white px-2 py-0.5">
-                {String(timeLeft.seconds).padStart(2, '0')}s
-              </span>
+              <Image
+                src={flashProducts[0].image}
+                alt={flashProducts[0].title}
+                fill
+                sizes="300px"
+                className="object-cover"
+              />
             </div>
-          </div>
-        </div>
-
-        {/* Flash Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {flashDeals.map((deal) => (
-            <div
-              key={deal.id}
-              className="group relative rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-5 shadow-sm hover:shadow-xl transition-all duration-300 dark:bg-background flex flex-col"
-            >
-              {/* Image */}
-              <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-surface-container-low mb-4">
-                <span className="absolute left-3 top-3 z-10 rounded-full bg-error px-3 py-1 text-xs font-bold text-white shadow-md">
-                  {deal.discount}
-                </span>
-                <Image
-                  src={deal.image}
-                  alt={deal.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+            <span className="text-[11px] font-medium text-primary">{flashProducts[0].vendor}</span>
+            <h3 className="text-sm font-bold text-foreground mt-0.5 line-clamp-2">{flashProducts[0].title}</h3>
+            <div className="flex items-center gap-1 mt-1.5">
+              <Star className="h-3 w-3 fill-amber-500 text-amber-500" />
+              <span className="text-[11px] font-bold text-amber-600">{flashProducts[0].rating}</span>
+              <span className="text-[11px] text-on-surface-variant">({flashProducts[0].reviews})</span>
+            </div>
+            <div className="flex items-baseline gap-2 mt-2">
+              <span className="text-xl font-extrabold text-foreground">{formatCurrency(flashProducts[0].price)}</span>
+              <span className="text-xs text-outline line-through">{formatCurrency(flashProducts[0].originalPrice)}</span>
+            </div>
+            {/* Progress */}
+            <div className="mt-3 space-y-1">
+              <div className="flex justify-between text-[11px] font-medium">
+                <span className="text-on-surface-variant">{flashProducts[0].soldPercent}% Sold</span>
+                <span className="text-deal font-bold">{flashProducts[0].stockLeft} left</span>
+              </div>
+              <div className="h-2 w-full rounded-full bg-surface-container-high overflow-hidden">
+                <div
+                  style={{ width: `${flashProducts[0].soldPercent}%` }}
+                  className="h-full rounded-full bg-gradient-to-r from-amber-500 to-deal progress-fill"
                 />
               </div>
-
-              {/* Copy */}
-              <div className="flex items-center gap-1 text-xs font-semibold text-primary mb-1">
-                <ShieldCheck className="h-3.5 w-3.5" /> {deal.vendor}
-              </div>
-              <h3 className="font-bold text-base text-foreground line-clamp-1 group-hover:text-primary transition-colors">
-                {deal.title}
-              </h3>
-
-              <PriceDisplay price={deal.price} originalPrice={deal.originalPrice} size="md" className="mt-2" />
-
-              {/* Progress Bar */}
-              <div className="mt-4 pt-3 border-t border-outline-variant/20 space-y-1.5">
-                <div className="flex justify-between text-xs font-medium">
-                  <span className="text-on-surface-variant">{deal.soldPercent}% Claimed</span>
-                  <span className="text-error font-bold">Only {deal.stockLeft} left</span>
-                </div>
-                <div className="h-2 w-full rounded-full bg-surface-container-high overflow-hidden">
-                  <div
-                    style={{ width: `${deal.soldPercent}%` }}
-                    className="h-full rounded-full bg-gradient-to-r from-amber-500 to-error transition-all duration-500"
-                  />
-                </div>
-              </div>
-
-              <Link href={`/products/${deal.slug}`} className="mt-4">
-                <Button size="sm" className="w-full gap-2 font-bold">
-                  <ShoppingBag className="h-4 w-4" /> Claim Deal Now
-                </Button>
-              </Link>
             </div>
-          ))}
+            <Link
+              href={`/products/${flashProducts[0].slug}`}
+              className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-deal text-white py-2.5 text-xs font-bold hover:bg-deal/90 transition-colors"
+            >
+              <ShoppingCart className="h-3.5 w-3.5" /> Add to Cart
+            </Link>
+          </div>
+
+          {/* Product Carousel */}
+          <div className="lg:col-span-3">
+            <ProductCarousel>
+              {flashProducts.slice(1).map((p) => (
+                <CarouselItem key={p.id} className="!w-[200px] sm:!w-[220px]">
+                  <div className="group flex flex-col rounded-xl border border-outline-variant/15 bg-surface-container-lowest overflow-hidden card-lift h-full dark:bg-surface-container-low/50">
+                    <div className="relative aspect-square overflow-hidden bg-surface-container-low">
+                      <span className="absolute left-2 top-2 z-10 rounded-md bg-deal px-2 py-0.5 text-[10px] font-bold text-white">
+                        -{p.discount}%
+                      </span>
+                      <button className="absolute right-2 top-2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm hover:bg-white text-on-surface-variant transition-colors">
+                        <Eye className="h-3 w-3" />
+                      </button>
+                      <Image src={p.image} alt={p.title} fill sizes="220px" className="object-cover product-img-zoom" />
+                    </div>
+                    <div className="p-2.5 flex flex-col flex-1">
+                      <span className="text-[10px] font-medium text-primary">{p.vendor}</span>
+                      <h4 className="text-xs font-semibold text-foreground line-clamp-2 mt-0.5 leading-tight">{p.title}</h4>
+                      <div className="flex items-center gap-1 mt-1">
+                        <Star className="h-2.5 w-2.5 fill-amber-500 text-amber-500" />
+                        <span className="text-[10px] font-bold">{p.rating}</span>
+                        <span className="text-[10px] text-on-surface-variant">({p.reviews})</span>
+                      </div>
+                      <div className="flex items-baseline gap-1.5 mt-1.5">
+                        <span className="text-sm font-bold text-foreground">{formatCurrency(p.price)}</span>
+                        <span className="text-[10px] text-outline line-through">{formatCurrency(p.originalPrice)}</span>
+                      </div>
+                      {/* Mini progress */}
+                      <div className="mt-2 space-y-0.5">
+                        <div className="h-1.5 w-full rounded-full bg-surface-container-high overflow-hidden">
+                          <div style={{ width: `${p.soldPercent}%` }} className="h-full rounded-full bg-gradient-to-r from-amber-500 to-deal progress-fill" />
+                        </div>
+                        <span className="text-[9px] text-deal font-medium">{p.stockLeft} left</span>
+                      </div>
+                      <button className="mt-auto pt-2 flex items-center justify-center gap-1.5 rounded-md bg-primary/10 text-primary py-1.5 text-[11px] font-bold hover:bg-primary hover:text-white transition-colors">
+                        <ShoppingCart className="h-3 w-3" /> Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </ProductCarousel>
+          </div>
         </div>
       </div>
     </section>

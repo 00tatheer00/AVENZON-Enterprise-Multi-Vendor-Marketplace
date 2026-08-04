@@ -3,167 +3,174 @@
 import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Sparkles, Heart, ShieldCheck, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { HeroShaderBg } from './hero-shader-bg';
+import { ChevronLeft, ChevronRight, ArrowRight, Truck, Shield, Headphones, RotateCcw } from 'lucide-react';
+
+const heroSlides = [
+  {
+    id: 1,
+    title: 'Summer Tech Festival',
+    subtitle: 'Up to 60% OFF on Premium Electronics',
+    cta: 'Shop Electronics',
+    href: '/catalog?c=electronics',
+    gradient: 'from-[#0f0c29] via-[#302b63] to-[#24243e]',
+    image: 'https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&w=1200&q=85',
+  },
+  {
+    id: 2,
+    title: 'Luxury Watch Collection',
+    subtitle: 'Precision Engineering Meets Classic Design',
+    cta: 'Explore Watches',
+    href: '/catalog?c=watches',
+    gradient: 'from-[#1a1a2e] via-[#16213e] to-[#0f3460]',
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=85',
+  },
+  {
+    id: 3,
+    title: 'New Season Fashion',
+    subtitle: 'Discover 2026 Trending Collections',
+    cta: 'Shop Fashion',
+    href: '/catalog?c=fashion',
+    gradient: 'from-[#2d1b69] via-[#6c5ce7] to-[#a29bfe]',
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85',
+  },
+];
+
+const promoBanners = [
+  {
+    title: 'New Arrivals',
+    subtitle: 'Fresh drops every day',
+    gradient: 'from-emerald-600 to-teal-500',
+    href: '/catalog?sort=newest',
+  },
+  {
+    title: 'Clearance Sale',
+    subtitle: 'Up to 80% OFF',
+    gradient: 'from-rose-600 to-pink-500',
+    href: '/deals',
+  },
+];
+
+const trustIcons = [
+  { icon: <Truck className="h-5 w-5" />, title: 'Free Shipping', desc: 'Orders over $50' },
+  { icon: <Shield className="h-5 w-5" />, title: 'Secure Payment', desc: '256-bit encrypted' },
+  { icon: <RotateCcw className="h-5 w-5" />, title: '30-Day Returns', desc: 'Hassle-free returns' },
+  { icon: <Headphones className="h-5 w-5" />, title: '24/7 Support', desc: 'Dedicated team' },
+];
 
 export function HomepageHero() {
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const goToSlide = (index: number) => setCurrentSlide(index);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+
   return (
-    <section className="relative w-full overflow-hidden gradient-hero py-16 md:py-24 border-b border-outline-variant/30">
-      {/* Background Interactive Particle Canvas */}
-      <HeroShaderBg />
-
-      <div className="relative z-10 mx-auto max-w-[1280px] px-6">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
-          {/* Left Copy Column (7 cols) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7 max-w-2xl"
-          >
-            {/* Top Pill Badges */}
-            <div className="flex flex-wrap items-center gap-2 mb-6">
-              <span className="inline-flex items-center gap-2 rounded-full border border-outline-variant/50 bg-surface-container-high px-3.5 py-1 text-xs font-semibold text-on-surface-variant">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>$4.2M+ Transacted • 500+ Verified Suppliers</span>
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
-                <ShieldCheck className="h-3.5 w-3.5" /> 100% Escrow Protection
-              </span>
-            </div>
-
-            {/* Headline */}
-            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.1]">
-              The Enterprise Multi-Vendor <br />
-              <span className="text-primary">Marketplace Ecosystem</span>
-            </h1>
-
-            <p className="mt-6 text-base text-on-surface-variant sm:text-lg leading-relaxed">
-              Connect directly with audited global manufacturers, boutique studios, and luxury artisans. Experience AI-driven curation and transparent multi-vendor escrow protection.
-            </p>
-
-            {/* AI Search Bar in Hero */}
-            <div className="glass-panel mt-8 flex flex-col sm:flex-row items-center rounded-2xl p-2 shadow-2xl w-full max-w-xl border border-outline-variant/40">
-              <div className="flex items-center w-full px-3 py-2">
-                <Sparkles className="h-5 w-5 text-primary shrink-0 mr-2" />
-                <input
-                  type="text"
-                  placeholder="Ask AI: 'Show me precision chronograph watches under $1,500'..."
-                  className="w-full bg-transparent text-sm text-foreground placeholder:text-outline focus:outline-none"
-                  aria-label="AI Marketplace Search"
+    <section className="w-full bg-background">
+      <div className="marketplace-container section-gap">
+        {/* Main Hero Area: Slider + Promo Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-4">
+          {/* Hero Slider — 3 cols */}
+          <div className="lg:col-span-3 relative rounded-xl overflow-hidden group min-h-[260px] md:min-h-[380px]">
+            {heroSlides.map((slide, idx) => (
+              <div
+                key={slide.id}
+                className={`absolute inset-0 transition-opacity duration-700 ${idx === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+              >
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 75vw"
+                  className="object-cover"
+                  priority={idx === 0}
                 />
+                <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} opacity-70`} />
+                <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-12">
+                  <span className="text-white/70 text-xs font-semibold uppercase tracking-widest mb-2">AVENZON Exclusive</span>
+                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 leading-tight max-w-lg">
+                    {slide.title}
+                  </h2>
+                  <p className="text-white/80 text-sm md:text-base mb-6 max-w-md">{slide.subtitle}</p>
+                  <Link
+                    href={slide.href}
+                    className="inline-flex items-center gap-2 rounded-lg bg-white text-foreground px-6 py-3 text-sm font-bold hover:bg-primary hover:text-white transition-colors w-fit shadow-lg"
+                  >
+                    {slide.cta} <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
-              <Link href="/search" className="w-full sm:w-auto">
-                <Button variant="default" size="lg" className="w-full sm:w-auto shrink-0 rounded-xl font-bold gap-2">
-                  Explore AI Search <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
+            ))}
 
-            {/* Category Quick Tags */}
-            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs font-medium text-on-surface-variant">
-              <span>Popular Tags:</span>
-              {['Smart Home', 'Luxury Horology', 'Audiophile Gear', 'Boutique Leather'].map((tag, i) => (
-                <Link
-                  key={i}
-                  href="/catalog"
-                  className="rounded-full bg-surface-container px-3 py-1 text-xs text-foreground hover:bg-primary-container hover:text-on-primary-container transition-colors"
-                >
-                  {tag}
-                </Link>
+            {/* Slider Controls */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm hover:bg-white/40 transition-all opacity-0 group-hover:opacity-100"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm hover:bg-white/40 transition-all opacity-0 group-hover:opacity-100"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            {/* Dots */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+              {heroSlides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goToSlide(idx)}
+                  className={`h-2 rounded-full transition-all ${idx === currentSlide ? 'w-6 bg-white' : 'w-2 bg-white/40 hover:bg-white/60'}`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
               ))}
             </div>
+          </div>
 
-            {/* Buyer Social Proof */}
-            <div className="mt-8 flex items-center gap-4 text-xs font-medium text-on-surface-variant pt-6 border-t border-outline-variant/30">
-              <div className="flex -space-x-2">
-                <img className="h-9 w-9 rounded-full border-2 border-surface object-cover shadow-sm" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="User 1" />
-                <img className="h-9 w-9 rounded-full border-2 border-surface object-cover shadow-sm" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="User 2" />
-                <img className="h-9 w-9 rounded-full border-2 border-surface object-cover shadow-sm" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80" alt="User 3" />
+          {/* Right Promo Cards — 1 col */}
+          <div className="hidden lg:flex flex-col gap-3 md:gap-4">
+            {promoBanners.map((banner, idx) => (
+              <Link
+                key={idx}
+                href={banner.href}
+                className={`flex-1 rounded-xl bg-gradient-to-br ${banner.gradient} p-5 flex flex-col justify-end text-white hover:opacity-95 transition-opacity relative overflow-hidden group`}
+              >
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors" />
+                <div className="relative z-10">
+                  <h3 className="text-lg font-bold mb-0.5">{banner.title}</h3>
+                  <p className="text-white/80 text-xs">{banner.subtitle}</p>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold mt-3 group-hover:gap-2 transition-all">
+                    Shop Now <ArrowRight className="h-3 w-3" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Trust Icons Row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+          {trustIcons.map((item, idx) => (
+            <div key={idx} className="flex items-center gap-3 rounded-lg bg-surface-container-lowest border border-outline-variant/15 p-3 hover:border-primary/20 transition-colors">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/8 text-primary">
+                {item.icon}
               </div>
               <div>
-                <div className="font-bold text-foreground">Joined by 2M+ Buyers Worldwide</div>
-                <div className="text-[11px] text-on-surface-variant">Avg. Vendor Trust Rating 4.9/5.0 ★</div>
+                <h4 className="text-xs font-bold text-foreground">{item.title}</h4>
+                <p className="text-[11px] text-on-surface-variant">{item.desc}</p>
               </div>
             </div>
-          </motion.div>
-
-          {/* Right Floating Showcase Cards Column (5 cols) */}
-          <div className="relative hidden lg:block lg:col-span-5 h-[520px]">
-            {/* Primary Watch Card */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-              className="absolute left-1/2 top-1/2 z-20 w-80 -translate-x-1/2 -translate-y-1/2 -rotate-2 glass-panel rounded-2xl p-4 shadow-2xl border border-outline-variant/40"
-            >
-              <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-surface-container">
-                <Image
-                  src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85"
-                  alt="Aero Chronograph Masterpiece"
-                  fill
-                  sizes="320px"
-                  className="object-cover"
-                />
-                <button className="absolute right-3 top-3 rounded-full bg-white/80 p-2 shadow-sm text-foreground">
-                  <Heart className="h-4 w-4" />
-                </button>
-              </div>
-              <div className="mt-3 flex justify-between items-start">
-                <h3 className="font-semibold text-sm text-foreground">Aero Chronograph</h3>
-                <span className="font-bold text-sm text-foreground">$1,250</span>
-              </div>
-              <div className="text-xs text-primary font-medium mt-0.5">Horology Haus • 4.9★</div>
-              <Link href="/products/chronograph-masterpiece">
-                <Button variant="outline" size="sm" className="mt-3 w-full font-semibold">View Details</Button>
-              </Link>
-            </motion.div>
-
-            {/* Secondary Headphones Card */}
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}
-              className="absolute right-0 top-6 z-10 w-64 rotate-6 glass-panel rounded-2xl p-3 shadow-xl border border-outline-variant/40"
-            >
-              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-surface-container">
-                <Image
-                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=85"
-                  alt="Sonic Pro Max Studio"
-                  fill
-                  sizes="256px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="mt-2 flex justify-between items-center text-xs font-semibold">
-                <span>Sonic Pro Max</span>
-                <span>$349</span>
-              </div>
-              <div className="text-[11px] text-on-surface-variant mt-0.5">Aether Audio • 4.8★</div>
-            </motion.div>
-
-            {/* Tertiary Leather Tote Card */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 7, ease: 'easeInOut', delay: 2 }}
-              className="absolute left-2 bottom-6 z-10 w-56 -rotate-6 glass-panel rounded-2xl p-3 shadow-xl border border-outline-variant/40"
-            >
-              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-surface-container">
-                <Image
-                  src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=85"
-                  alt="Structure Leather Tote"
-                  fill
-                  sizes="224px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="mt-2 flex justify-between items-center text-xs font-semibold">
-                <span>Structure Tote</span>
-                <span>$590</span>
-              </div>
-              <div className="text-[11px] text-on-surface-variant mt-0.5">LuxeCraft • 5.0★</div>
-            </motion.div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

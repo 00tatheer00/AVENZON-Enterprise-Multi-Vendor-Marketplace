@@ -1,110 +1,73 @@
 'use client';
 
 import * as React from 'react';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
+import { SectionHeader } from '@/components/shared/section-header';
 import { ProductCard, type ProductSummary } from '@/components/shared/product-card';
 
-const mockProducts: ProductSummary[] = [
+const recommended: ProductSummary[] = [
   {
-    id: 'prod-1',
-    title: 'OmniHub Pro Smart Home Controller',
-    slug: 'omnihub-pro-controller',
-    price: 249.0,
-    imageSrc: 'https://images.unsplash.com/photo-1543512214-318c7553f230?auto=format&fit=crop&w=800&q=85',
-    vendorName: 'NexusTech',
-    vendorRating: 4.9,
-    rating: 4.8,
-    reviewCount: 128,
-    badge: 'New Arrival',
+    id: 'rec-1', title: 'OmniHub Pro Smart Controller', slug: 'omnihub-pro', price: 249, originalPrice: 329,
+    imageSrc: 'https://images.unsplash.com/photo-1543512214-318c7553f230?auto=format&fit=crop&w=600&q=85',
+    vendorName: 'NexusTech', rating: 4.8, reviewCount: 1280, stock: 32, freeDelivery: true, deliveryDate: 'Mon, Aug 10',
   },
   {
-    id: 'prod-2',
-    title: 'Silence V3 ANC Headphones',
-    slug: 'silence-v3-headphones',
-    price: 339.0,
-    originalPrice: 399.0,
-    discountBadge: '-15% Sale',
-    imageSrc: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=85',
-    vendorName: 'Aether Audio',
-    vendorRating: 4.8,
-    rating: 5.0,
-    reviewCount: 452,
+    id: 'rec-2', title: 'Aether Sonics ANC Pro', slug: 'aether-sonics-pro', price: 339, originalPrice: 399,
+    imageSrc: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=85',
+    vendorName: 'Aether Audio', rating: 5.0, reviewCount: 4520, stock: 19, freeDelivery: true,
   },
   {
-    id: 'prod-3',
-    title: 'EcoStat Touch Smart Thermostat',
-    slug: 'ecostat-touch-thermostat',
-    price: 199.0,
-    imageSrc: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=85',
-    vendorName: 'Lumina',
-    vendorRating: 4.7,
-    rating: 4.6,
-    reviewCount: 89,
+    id: 'rec-3', title: 'EcoStat Touch Thermostat', slug: 'ecostat-touch', price: 199,
+    imageSrc: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=85',
+    vendorName: 'Lumina', rating: 4.6, reviewCount: 890, stock: 45, freeDelivery: true, deliveryDate: 'Tue, Aug 11',
   },
   {
-    id: 'prod-4',
-    title: 'Nexus Studio Pro Wireless',
-    slug: 'nexus-studio-pro',
-    price: 349.0,
-    imageSrc: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=85',
-    vendorName: 'Auraudio',
-    vendorRating: 4.9,
-    rating: 4.9,
-    reviewCount: 312,
-    badge: 'Top Rated',
+    id: 'rec-4', title: 'Nexus Studio Pro Wireless', slug: 'nexus-studio-pro', price: 349,
+    imageSrc: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=85',
+    vendorName: 'Auraudio', rating: 4.9, reviewCount: 3120, badge: 'Top Rated', stock: 11, freeDelivery: true,
+  },
+  {
+    id: 'rec-5', title: 'Structure Leather Weekender', slug: 'leather-weekender', price: 590, originalPrice: 690,
+    imageSrc: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=85',
+    vendorName: 'LuxeCraft', rating: 4.8, reviewCount: 670, stock: 7, freeDelivery: true,
+  },
+  {
+    id: 'rec-6', title: 'Aero Chronograph Masterpiece', slug: 'chronograph-masterpiece', price: 1250,
+    imageSrc: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85',
+    vendorName: 'Horology Haus', rating: 4.9, reviewCount: 1420, stock: 4, freeDelivery: true,
+  },
+  {
+    id: 'rec-7', title: 'Bamboo Wireless Charger', slug: 'bamboo-charger', price: 39, originalPrice: 59,
+    imageSrc: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=85',
+    vendorName: 'EcoTech', rating: 4.5, reviewCount: 2300, stock: 78, freeDelivery: true,
+  },
+  {
+    id: 'rec-8', title: 'Smart LED Desk Lamp', slug: 'smart-led-lamp', price: 89,
+    imageSrc: 'https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?auto=format&fit=crop&w=600&q=85',
+    vendorName: 'LightHouse', rating: 4.7, reviewCount: 1560, stock: 28, freeDelivery: true, deliveryDate: 'Wed, Aug 12',
   },
 ];
 
 export function CuratedProductGrid() {
   const [activeTab, setActiveTab] = React.useState('All Products');
 
-  const tabs = ['All Products', 'Luxury Horology', 'Smart Tech', 'Audiophile Sound'];
-
   return (
-    <section className="py-16 md:py-24">
-      <div className="mx-auto max-w-[1280px] px-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-primary">Handpicked Selection</span>
-            <h2 className="text-3xl font-extrabold text-foreground mt-1">Curated Marketplace Trending</h2>
-            <p className="text-sm text-on-surface-variant mt-1">Verified for build quality, authenticity, and express worldwide delivery.</p>
-          </div>
-
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-1.5 rounded-full border border-outline-variant/30 bg-surface-container-low p-1.5">
-            {tabs.map((t) => (
-              <button
-                key={t}
-                onClick={() => setActiveTab(t)}
-                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
-                  activeTab === t
-                    ? 'bg-primary text-white shadow-sm'
-                    : 'text-on-surface-variant hover:text-foreground'
-                }`}
-              >
-                {t}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {mockProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+    <section className="w-full bg-background">
+      <div className="marketplace-container section-gap">
+        <SectionHeader
+          title="Recommended Products"
+          subtitle="Verified for quality, authenticity, and express worldwide delivery"
+          icon={<ShoppingBag className="h-5 w-5" />}
+          viewAllHref="/catalog"
+          viewAllText="Explore Full Catalog"
+          tabs={['All Products', 'Smart Tech', 'Audiophile', 'Lifestyle', 'Accessories']}
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+        />
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+          {recommended.map((p) => (
+            <ProductCard key={p.id} product={p} onQuickView={() => {}} onAddToCart={() => {}} />
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/catalog"
-            className="inline-flex items-center gap-2 rounded-full border border-outline-variant/40 bg-surface-container-lowest px-6 py-3 text-sm font-bold text-foreground shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
-          >
-            <span>Explore Full 420+ Product Catalog</span>
-            <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
       </div>
     </section>

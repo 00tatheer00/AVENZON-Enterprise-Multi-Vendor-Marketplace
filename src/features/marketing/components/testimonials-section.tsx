@@ -1,78 +1,105 @@
 'use client';
 
 import * as React from 'react';
-import { Star, Quote, ShieldCheck } from 'lucide-react';
+import Image from 'next/image';
+import { Star, ShieldCheck, ThumbsUp, MessageSquare } from 'lucide-react';
+import { SectionHeader } from '@/components/shared/section-header';
+import { ProductCarousel, CarouselItem } from '@/components/shared/product-carousel';
+
+const reviews = [
+  {
+    id: 'rev-1', name: 'Sarah M.', rating: 5, verified: true,
+    product: 'MacBook Pro M4 Max', productImage: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80',
+    text: 'Absolutely incredible performance. The M4 chip handles everything I throw at it. Best laptop I have ever owned. AVENZON delivery was super fast too!',
+    date: '2 days ago', helpful: 42,
+  },
+  {
+    id: 'rev-2', name: 'James K.', rating: 5, verified: true,
+    product: 'Sony WH-1000XM6', productImage: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=200&q=80',
+    text: 'The noise cancellation on these is unreal. Perfect for my daily commute and work calls. Sound quality is studio-grade. Worth every penny.',
+    date: '5 days ago', helpful: 38,
+  },
+  {
+    id: 'rev-3', name: 'Priya R.', rating: 4, verified: true,
+    product: 'Nike Air Max 2026', productImage: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=200&q=80',
+    text: 'Super comfortable and stylish. The cushioning is amazing for long walks. Only wish they had more color options. Great buy from a verified seller.',
+    date: '1 week ago', helpful: 27,
+  },
+  {
+    id: 'rev-4', name: 'Alex T.', rating: 5, verified: true,
+    product: 'Dyson V15 Detect', productImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=200&q=80',
+    text: 'This vacuum is a game-changer. The laser dust detection is mind-blowing. My floors have never been cleaner. Premium product, premium experience.',
+    date: '3 days ago', helpful: 56,
+  },
+  {
+    id: 'rev-5', name: 'Maria L.', rating: 5, verified: true,
+    product: 'Le Creuset Dutch Oven', productImage: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=200&q=80',
+    text: 'The quality is exceptional. Heavy, well-made, and cooks everything perfectly. The color is gorgeous too. Already planning to buy more Le Creuset!',
+    date: '4 days ago', helpful: 34,
+  },
+];
 
 export function TestimonialsSection() {
-  const reviews = [
-    {
-      quote: "The verification process for luxury watches gave me 100% confidence. Receiving my tourbillon with authenticated escrow delivery was flawless.",
-      author: "Marcus Vance",
-      title: "Collector & Tech Investor",
-      location: "London, UK",
-      store: "Horology Haus Purchase",
-      rating: 5,
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuAGhccwaerxFnTN3Hq8qYrhQ9y0AkTQH_0R8qVpha8U_hjfKwSepRP7Z6bgZZaPQStmM388VutBfWJ5xWZLMw4OkGm4zwzXf9wi81Oy8bNfyW_pBlLZzSaDCCIH8rlafwWrZH6QIKKNJd2kMt0_Rv0DzCgnNrrGsRP2_VmWJOXj1qjsvu5x-h0K9RN8UJK7Z77i8WbfxuAh2xG9izr3tUScLJ77tOrojhXcfi8Y50ipIio0Yd_m1x9Ggg",
-    },
-    {
-      quote: "AVENZON's multi-vendor tracking is lightyears ahead of typical marketplaces. Express DHL shipping arrived in under 36 hours.",
-      author: "Elena Rostova",
-      title: "Audio Engineer",
-      location: "Zurich, Switzerland",
-      store: "Aether Audio Purchase",
-      rating: 5,
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDlzXYFTBSpWS1BkzxuCwl007uaAEZDPBa5UGvC2ELD1NOpiTNYmXYG73LaBm3H0D7f2KT72JoKgPM-EGE5bofXfSUxsAlJQqa3FgD_s5kp_6IBeL1e78x8vHxFCZPr-9OxoVsX7qAJLFVbZpqUcCJIGu3mnLeSEozzUAP5HI97okuzuSB_PgiM2Ws4HGBSWVKQIugvWXejlXqFknVWz1477nhOgYbsPRQmjGtkiQeu1IjEh6CMJdG2CQ",
-    },
-    {
-      quote: "As a vendor, selling on AVENZON provided our studio direct access to global buyers with automated escrow and zero dispute headaches.",
-      author: "David Chen",
-      title: "Founder, NexusTech",
-      location: "San Francisco, CA",
-      store: "Verified Merchant Partner",
-      rating: 5,
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBub9_-auRRj6OBSfEUN8WE5RSxI7LRcfhLvrwxiJ5BljQhApbNKBbSheI9hiuMK4vGA62PiezNpQzJdyUk7DgdxoYKvntWDpP3NElGbB1DLlbwip7m1kkypkhYx-iJQIDKq327wVjD7KrWYDwxRf_K-tZ_ZAxGGJJQmkUmuIASoKh_Jmeo_bfjkBCAS-kMpSQnTGYGuRDLmApx7vKg8B5QMpXGKI6Z445AUmm7O1UD-hh6vYckB76Wbw",
-    },
-  ];
-
   return (
-    <section className="w-full py-16 md:py-24 bg-surface-container-low/50 border-b border-outline-variant/30">
-      <div className="mx-auto max-w-[1280px] px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs font-bold uppercase tracking-wider text-primary">Global Buyer Proof</span>
-          <h2 className="text-3xl font-extrabold text-foreground mt-1">Trusted by 2M+ Buyers Worldwide</h2>
-          <p className="text-sm text-on-surface-variant mt-2">See what verified purchasers say about their AVENZON marketplace experience.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {reviews.map((r, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-6 shadow-sm flex flex-col justify-between dark:bg-background"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex text-amber-500">
-                    {Array.from({ length: r.rating }).map((_, idx) => (
-                      <Star key={idx} className="h-4 w-4 fill-amber-500" />
-                    ))}
+    <section className="w-full bg-background">
+      <div className="marketplace-container section-gap">
+        <SectionHeader
+          title="Customer Reviews"
+          subtitle="Real feedback from verified buyers"
+          icon={<MessageSquare className="h-5 w-5" />}
+          viewAllHref="/reviews"
+        />
+        <ProductCarousel>
+          {reviews.map((r) => (
+            <CarouselItem key={r.id} className="!w-[300px] sm:!w-[340px]">
+              <div className="rounded-xl border border-outline-variant/15 bg-surface-container-lowest p-4 flex flex-col h-full dark:bg-surface-container-low/50">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <div className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">
+                      {r.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-sm font-bold text-foreground">{r.name}</span>
+                        {r.verified && (
+                          <span className="flex items-center gap-0.5 text-[10px] font-medium text-fresh">
+                            <ShieldCheck className="h-3 w-3" /> Verified
+                          </span>
+                        )}
+                      </div>
+                      <span className="text-[10px] text-on-surface-variant">{r.date}</span>
+                    </div>
                   </div>
-                  <Quote className="h-6 w-6 text-outline-variant/50" />
                 </div>
-                <p className="text-sm text-foreground leading-relaxed italic">&quot;{r.quote}&quot;</p>
-              </div>
 
-              <div className="mt-6 pt-4 border-t border-outline-variant/20 flex items-center gap-3">
-                <img src={r.avatar} alt={r.author} className="h-10 w-10 rounded-full object-cover border border-outline-variant/40" />
-                <div>
-                  <h4 className="text-xs font-bold text-foreground flex items-center gap-1">
-                    {r.author} <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-                  </h4>
-                  <p className="text-[11px] text-on-surface-variant">{r.title} • {r.location}</p>
+                {/* Stars */}
+                <div className="flex items-center gap-0.5 mb-2">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className={`h-3.5 w-3.5 ${i < r.rating ? 'fill-amber-500 text-amber-500' : 'text-outline-variant'}`} />
+                  ))}
+                </div>
+
+                {/* Review Text */}
+                <p className="text-xs text-on-surface-variant leading-relaxed line-clamp-3 flex-1">{r.text}</p>
+
+                {/* Product */}
+                <div className="mt-3 flex items-center gap-2 rounded-lg bg-surface-container-low/60 p-2 border border-outline-variant/10">
+                  <div className="relative h-10 w-10 rounded-md overflow-hidden bg-surface-container shrink-0">
+                    <Image src={r.productImage} alt={r.product} fill sizes="40px" className="object-cover" />
+                  </div>
+                  <span className="text-[11px] font-medium text-foreground line-clamp-1">{r.product}</span>
+                </div>
+
+                {/* Helpful */}
+                <div className="mt-2 flex items-center gap-1 text-[11px] text-on-surface-variant">
+                  <ThumbsUp className="h-3 w-3" />
+                  <span>{r.helpful} found this helpful</span>
                 </div>
               </div>
-            </div>
+            </CarouselItem>
           ))}
-        </div>
+        </ProductCarousel>
       </div>
     </section>
   );
