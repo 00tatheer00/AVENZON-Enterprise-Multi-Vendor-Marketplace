@@ -38,27 +38,31 @@ export function Header() {
   return (
     <header className={`sticky top-0 z-50 w-full transition-shadow duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       {/* ROW 1: Top Utility Bar */}
-      <div className="w-full bg-surface-container-high/80 backdrop-blur-sm border-b border-outline-variant/20 hidden md:block">
+      <div className="w-full bg-surface-container-high/60 backdrop-blur-sm border-b border-outline-variant/20 hidden md:block">
         <div className="marketplace-container flex h-8 items-center justify-between text-[11px]">
           <div className="flex items-center gap-4 text-on-surface-variant">
-            <Link href="/sell" className="hover:text-primary transition-colors font-medium">Sell on AVENZON</Link>
+            <button className="hover:text-primary transition-colors flex items-center gap-1 font-medium">
+              <MapPin className="h-3 w-3 text-primary" /> Deliver to: <span className="font-bold text-foreground">Pakistan</span> <ChevronDown className="h-3 w-3" />
+            </button>
             <span className="text-outline-variant">|</span>
+            <button className="hover:text-primary transition-colors flex items-center gap-1 font-medium">
+              English <ChevronDown className="h-3 w-3" />
+            </button>
+            <span className="text-outline-variant">|</span>
+            <button className="hover:text-primary transition-colors flex items-center gap-1 font-medium">
+              PKR <ChevronDown className="h-3 w-3" />
+            </button>
+          </div>
+          <div className="flex items-center gap-4 text-on-surface-variant">
             <Link href="/track-order" className="hover:text-primary transition-colors flex items-center gap-1">
-              <Package className="h-3 w-3" /> Track Order
+              Track Order
             </Link>
             <span className="text-outline-variant">|</span>
             <Link href="/support" className="hover:text-primary transition-colors flex items-center gap-1">
-              <Headphones className="h-3 w-3" /> Support
+              Help Center
             </Link>
-          </div>
-          <div className="flex items-center gap-4 text-on-surface-variant">
-            <button className="hover:text-primary transition-colors flex items-center gap-1">
-              <MapPin className="h-3 w-3" /> Deliver to: Worldwide
-            </button>
             <span className="text-outline-variant">|</span>
-            <button className="hover:text-primary transition-colors">USD $</button>
-            <span className="text-outline-variant">|</span>
-            <button className="hover:text-primary transition-colors">English</button>
+            <Link href="/sell" className="hover:text-primary transition-colors font-medium">Sell on Avenzon</Link>
           </div>
         </div>
       </div>
@@ -153,23 +157,28 @@ export function Header() {
       </div>
 
       {/* ROW 3: Category Navigation Bar — Sticky on scroll */}
-      <div className="w-full bg-white/90 backdrop-blur-lg border-b border-outline-variant/15 hidden md:block dark:bg-background/90">
+      <div className="w-full bg-white/95 backdrop-blur-lg border-b border-outline-variant/15 hidden md:block dark:bg-background/90">
         <div className="marketplace-container">
-          <nav className="flex items-center gap-0.5 overflow-x-auto scrollbar-hide py-0.5" aria-label="Category Navigation">
+          <nav className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-1 text-xs font-semibold" aria-label="Category Navigation">
             <MegaMenu />
-            {categories.slice(1).map((cat) => (
-              <Link
-                key={cat.name}
-                href={cat.href}
-                className="flex items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-2 text-xs font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors"
-              >
-                {cat.icon}
-                <span>{cat.name}</span>
-              </Link>
-            ))}
-            <Link href="/deals" className="flex items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-2 text-xs font-bold text-deal hover:bg-deal/5 transition-colors ml-auto">
-              <Sparkles className="h-3.5 w-3.5" />
+            <Link href="/deals" className="px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">
               Today&apos;s Deals
+            </Link>
+            <Link href="/flash-sale" className="px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">
+              Flash Sale
+            </Link>
+            <Link href="/best-sellers" className="px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">
+              Best Sellers
+            </Link>
+            <Link href="/new-arrivals" className="px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">
+              New Arrivals
+            </Link>
+            <Link href="/brands" className="px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">
+              Brands
+            </Link>
+            <Link href="/prime" className="flex items-center gap-1 px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">
+              <span>Avenzon Prime</span>
+              <span className="rounded bg-primary px-1 py-0.2 text-[9px] font-bold text-white uppercase">NEW</span>
             </Link>
           </nav>
         </div>

@@ -1,10 +1,10 @@
 export const designTokens = {
   colors: {
     primary: {
-      default: '#004ac6',
-      container: '#2563eb',
-      onContainer: '#eeefff',
-      tint: '#0053db',
+      default: '#FF7A00',
+      container: '#EA580C',
+      onContainer: '#FFF7ED',
+      tint: '#FF8C00',
     },
     surface: {
       default: '#faf8ff',

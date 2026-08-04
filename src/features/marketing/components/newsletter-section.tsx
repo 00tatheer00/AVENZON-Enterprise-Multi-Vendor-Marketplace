@@ -7,38 +7,33 @@ export function NewsletterSection() {
   const [email, setEmail] = React.useState('');
 
   return (
-    <section className="w-full bg-gradient-to-r from-primary via-primary-container to-accent">
-      <div className="marketplace-container py-10 md:py-14">
+    <section className="w-full bg-[#0B132B] text-white">
+      <div className="marketplace-container py-8 md:py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-white text-center md:text-left max-w-md">
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-              <Gift className="h-6 w-6" />
-              <span className="text-xs font-bold uppercase tracking-wider text-white/80">Exclusive Offer</span>
+          <div className="flex items-center gap-4 text-center md:text-left">
+            <div className="hidden sm:flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white">
+              <Mail className="h-7 w-7 text-primary" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-extrabold mb-1">Get $10 OFF Your First Order</h2>
-            <p className="text-white/70 text-sm">Subscribe to our newsletter and get exclusive deals, new arrivals, and insider-only discounts delivered to your inbox.</p>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold mb-1">Subscribe to our Newsletter</h2>
+              <p className="text-white/70 text-xs sm:text-sm">Get updates on the latest deals and offers</p>
+            </div>
           </div>
 
           <div className="w-full max-w-md">
-            <div className="flex rounded-lg overflow-hidden shadow-xl bg-white/10 backdrop-blur-md border border-white/20">
-              <div className="flex items-center px-3">
-                <Mail className="h-5 w-5 text-white/60" />
-              </div>
+            <div className="flex rounded-lg overflow-hidden bg-white p-1">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
-                className="flex-1 bg-transparent py-3.5 text-sm text-white placeholder:text-white/50 focus:outline-none"
+                className="flex-1 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none"
                 aria-label="Email for newsletter"
               />
-              <button className="bg-white text-primary px-6 py-3.5 text-sm font-bold hover:bg-white/90 transition-colors whitespace-nowrap">
+              <button className="bg-primary text-white px-6 py-2.5 text-sm font-bold hover:bg-primary-container transition-colors whitespace-nowrap rounded-md shadow-sm">
                 Subscribe
               </button>
             </div>
-            <p className="text-[11px] text-white/50 mt-2 text-center md:text-left">
-              By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.
-            </p>
           </div>
         </div>
       </div>

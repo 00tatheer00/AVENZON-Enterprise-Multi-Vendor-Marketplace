@@ -194,15 +194,15 @@ export function MegaMenu() {
       onMouseLeave={handleClose}
     >
       <button
-        className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold text-foreground bg-surface-container-low hover:bg-surface-container transition-colors"
+        className="flex items-center gap-2 rounded-t-lg px-4 py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-container shadow-sm transition-colors"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
       >
         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
-        <span>All Departments</span>
-        <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <span>All Categories</span>
+        <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (

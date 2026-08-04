@@ -14,9 +14,9 @@ const config: Config = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         primary: {
-          DEFAULT: '#0046c7',
-          container: '#2563eb',
-          onContainer: '#eeefff',
+          DEFAULT: 'var(--primary)',
+          container: 'var(--primary-container)',
+          onContainer: 'var(--on-primary-container)',
         },
         surface: {
           DEFAULT: '#f5f5f7',
