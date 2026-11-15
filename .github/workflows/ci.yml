@@ -1,0 +1,36 @@
+name: AVENZON CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Type-check and production build
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: TypeScript check
+        run: npm run type-check
+      - name: Production build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_APP_NAME: AVENZON
+          NEXT_PUBLIC_APP_URL: https://example.com
+          NEXT_PUBLIC_API_URL: https://example.com/api
+          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: pk_test_placeholder
+          STRIPE_SECRET_KEY: sk_test_placeholder
+          STRIPE_WEBHOOK_SECRET: whsec_placeholder
+          NEXT_PUBLIC_ENABLE_AI_SEARCH: "false"
+          NEXT_PUBLIC_ENABLE_WEBGL_HERO: "false"
