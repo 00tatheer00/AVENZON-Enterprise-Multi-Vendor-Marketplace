@@ -100,3 +100,11 @@ This repository represents an active marketplace application codebase. Before tr
 ## License
 
 No license file was identified during this documentation review. Confirm the intended license before redistributing or reusing this project.
+
+---
+
+## Repository standards
+
+- [Contribution guidelines](./CONTRIBUTING.md)
+- [Security policy](./SECURITY.md)
+- [Pull request template](./.github/PULL_REQUEST_TEMPLATE.md)
